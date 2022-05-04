@@ -1,4 +1,4 @@
-pyart.util
+﻿pyart.util
 ==========
 
 .. rubric:: Description
@@ -41,6 +41,14 @@ pyart.util
     
     estimate_noise_hs74
     
+    for_azimuth
+    
+    get_column_rays
+    
+    get_field_location
+    
+    image_mute_radar
+    
     interval_mean
     
     interval_std
@@ -56,6 +64,8 @@ pyart.util
     rolling_window
     
     simulated_vel_from_profile
+    
+    sphere_distance
     
     texture
     
