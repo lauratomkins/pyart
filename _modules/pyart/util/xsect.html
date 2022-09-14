@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyart.util.xsect &#8212; Py-ART 0.0.0 documentation</title>
+    <title>pyart.util.xsect &#8212; Py-ART 1.11.6.post232 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -262,7 +262,7 @@
     <span class="c1"># determine which rays from the ppi radar make up the pseudo RHI</span>
     <span class="n">prhi_rays</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">valid_azimuths</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">target_azimuth</span> <span class="ow">in</span> <span class="n">target_azimuths</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">target_azimuth</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">target_azimuths</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">sweep_slice</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">iter_slice</span><span class="p">():</span>
             <span class="n">sweep_azimuths</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">azimuth</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">sweep_slice</span><span class="p">]</span>
             <span class="n">d_az</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">sweep_azimuths</span> <span class="o">-</span> <span class="n">target_azimuth</span><span class="p">)</span>
@@ -283,12 +283,13 @@
                     <span class="n">prhi_rays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ray_number</span> <span class="o">+</span> <span class="n">sweep_slice</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
                     <span class="n">valid_azimuths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">target_azimuth</span><span class="p">)</span>
 
-    <span class="n">rhi_nsweeps</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid_azimuths</span><span class="p">)</span>
+    <span class="n">unique_azimuths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">valid_azimuths</span><span class="p">)</span>
+    <span class="n">rhi_nsweeps</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_azimuths</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">rhi_nsweeps</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;No azimuth found within tolerance&#39;</span><span class="p">)</span>
 
     <span class="n">radar_rhi</span> <span class="o">=</span> <span class="n">_construct_xsect_radar</span><span class="p">(</span>
-        <span class="n">radar</span><span class="p">,</span> <span class="s1">&#39;rhi&#39;</span><span class="p">,</span> <span class="n">prhi_rays</span><span class="p">,</span> <span class="n">rhi_nsweeps</span><span class="p">,</span> <span class="n">valid_azimuths</span><span class="p">)</span>
+        <span class="n">radar</span><span class="p">,</span> <span class="s1">&#39;rhi&#39;</span><span class="p">,</span> <span class="n">prhi_rays</span><span class="p">,</span> <span class="n">rhi_nsweeps</span><span class="p">,</span> <span class="n">unique_azimuths</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">radar_rhi</span></div>
 
