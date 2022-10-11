@@ -50,18 +50,18 @@ Performing radar moment corrections in antenna (radial) coordinates.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="In this example doppler velocities are dealiased using the Univ. of Washington FourDD algorithm...">
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example doppler velocities are dealiased using the ial condition of the dealiasing, usi...">
 
 .. only:: html
 
   .. image:: /examples/correct/images/thumb/sphx_glr_plot_dealias_thumb.png
-    :alt: Dealias doppler velocities using the FourDD algorithm
+    :alt: Dealias doppler velocities using the Region Based Algorithm
 
   :ref:`sphx_glr_examples_correct_plot_dealias.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Dealias doppler velocities using the FourDD algorithm</div>
+      <div class="sphx-glr-thumbnail-title">Dealias doppler velocities using the Region Based Algorithm</div>
     </div>
 
 
@@ -423,6 +423,73 @@ Plotting real world radar data with Py-ART.
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="This is an example of what colormaps are available in Py-ART, and how to add them to your own p...">
+
+.. only:: html
+
+  .. image:: /examples/plotting/images/thumb/sphx_glr_plot_choose_a_colormap_thumb.png
+    :alt: Choose a Colormap for your Plot
+
+  :ref:`sphx_glr_examples_plotting_plot_choose_a_colormap.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Choose a Colormap for your Plot</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+Retrieval Examples
+------------------
+
+Retrievals from various radars, such as additional fields or subsets of the data.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Given a radar and a point, extract the column of radar data values above a point">
+
+.. only:: html
+
+  .. image:: /examples/retrieve/images/thumb/sphx_glr_plot_column_subset_thumb.png
+    :alt: Extract a radar column above a point
+
+  :ref:`sphx_glr_examples_retrieve_plot_column_subset.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Extract a radar column above a point</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Calculates and plots the composite reflectivity, or the maximum reflectivity across all of the ...">
+
+.. only:: html
+
+  .. image:: /examples/retrieve/images/thumb/sphx_glr_plot_composite_reflectivity_thumb.png
+    :alt: Calculate and Plot Composite Reflectivity
+
+  :ref:`sphx_glr_examples_retrieve_plot_composite_reflectivity.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Calculate and Plot Composite Reflectivity</div>
+    </div>
+
+
+.. raw:: html
+
     </div>
 
 
@@ -434,6 +501,7 @@ Plotting real world radar data with Py-ART.
    /examples/io/index.rst
    /examples/mapping/index.rst
    /examples/plotting/index.rst
+   /examples/retrieve/index.rst
 
 
 .. only:: html

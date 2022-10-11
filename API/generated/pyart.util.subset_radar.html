@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>pyart.util.subset_radar &#8212; Py-ART 1.11.6.post232 documentation</title>
+    <title>pyart.util.subset_radar &#8212; Py-ART 1.11.6.post245 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -23,8 +23,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
@@ -41,11 +40,6 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/doc_shared.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -1229,6 +1223,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="pyart.retrieve.calculate_velocity_texture.html">
      pyart.retrieve.calculate_velocity_texture
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pyart.retrieve.composite_reflectivity.html">
+     pyart.retrieve.composite_reflectivity
     </a>
    </li>
    <li class="toctree-l2">
@@ -2902,20 +2901,20 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="pyart.util.subset_radar">
 <span class="sig-prename descclassname"><span class="pre">pyart.util.</span></span><span class="sig-name descname"><span class="pre">subset_radar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ele_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ele_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azi_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azi_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyart/util/radar_utils.html#subset_radar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyart.util.subset_radar" title="Permalink to this definition">#</a></dt>
-<dd><p>Creates a subset of the radar object along new dimensions
-:Parameters: * <strong>radar</strong> (<em>radar object</em>) – The radar object containing the data</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><strong>field_names</strong> (<em>str or None</em>) – The fields to keep in the new radar</p></li>
-<li><p><strong>rng_min, rng_max</strong> (<em>float</em>) – The range limits [m]. If None the entire coverage of the radar is
-going to be used</p></li>
-<li><p><strong>ele_min, ele_max, azi_min, azi_max</strong> (<em>float or None</em>) – The limits of the grid [deg]. If None the limits will be the limits
-of the radar volume</p></li>
-</ul>
-</div></blockquote>
+<dd><p>Creates a subset of the radar object along new dimensions.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>radar</strong> (<em>radar object</em>) – The radar object containing only the desired data</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>radar</strong> (<em>radar object</em>) – The radar object containing the data.</p></li>
+<li><p><strong>field_names</strong> (<em>str or None</em>) – The fields to keep in the new radar.</p></li>
+<li><p><strong>rng_min, rng_max</strong> (<em>float</em>) – The range limits [m]. If None the entire coverage of the radar is
+going to be used.</p></li>
+<li><p><strong>ele_min, ele_max, azi_min, azi_max</strong> (<em>float or None</em>) – The limits of the grid [deg]. If None the limits will be the limits
+of the radar volume.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>radar</strong> (<em>radar object</em>) – The radar object containing only the desired data.</p>
 </dd>
 </dl>
 </dd></dl>
