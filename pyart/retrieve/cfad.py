@@ -5,12 +5,12 @@ Create CFAD from a radar object.
 
 import numpy as np
 
-def createCFAD(field_data, altitude_data, field_bins, height_bins, min_frac_thres=0.2):
+def createCFAD(field_data, altitude_data, field_bins, height_bins, min_frac_thres=0.1):
     """
     Contoured Frequency by Altitude Diagram.
 
     This function returns a CFAD; a 2-dimensional histogram that is normalized by the number of points at each
-    altitude. 
+    altitude.
 
     Parameters
     ----------
@@ -25,7 +25,7 @@ def createCFAD(field_data, altitude_data, field_bins, height_bins, min_frac_thre
         List of bin edges for height values to use for CFAD creation.
     min_frac_thres : float, optional
         Fraction of values to remove in CFAD normalization (default 0.1). If an altitude row has a total count that
-        is less than min_frac_thres of the largest number of total counts for any altitude row, the binds in that
+        is less than min_frac_thres of the largest number of total counts for any altitude row, the bins in that
         altitude row are set to NaN.
 
     Returns
@@ -46,17 +46,23 @@ def createCFAD(field_data, altitude_data, field_bins, height_bins, min_frac_thre
 
     """
 
+    # validate inputs
+    if np.shape(field_data) != np.shape(altitude_data):
+
+
+    # get raw bin counts
     freq, height_edges, field_edges = np.histogram2d(altitude_data.compressed(), field_data.compressed(),
                                                      bins=[height_bins, field_bins])
 
     # sum counts over y axis (height)
     freq_sum = np.sum(freq, axis=1)
-    # repeat to create array same size as freq
-    freq_sum_rep = np.repeat(freq_sum[..., np.newaxis], freq.shape[1], axis=1)
     # get threshold for normalizing
     point_thres = min_frac_thres * np.max(freq_sum)
+    # repeat to create array same size as freq
+    freq_sum_rep = np.repeat(freq_sum[..., np.newaxis], freq.shape[1], axis=1)
     # normalize
     freq_norm = freq / freq_sum_rep
+    # mask data where there is not enough points
     freq_norm = np.ma.masked_where(freq_sum_rep < point_thres, freq_norm)
 
     return freq_norm, height_edges, field_edges
