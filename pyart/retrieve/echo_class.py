@@ -158,6 +158,8 @@ def conv_strat_yuter(
     Partition reflectivity into convective-stratiform using the Yuter et al. (2005)
     and Yuter and Houze (1997) algorithm.
 
+    Author: Laura Tomkins (@lauratomkins)
+
     Parameters
     ----------
     grid : Grid

@@ -12,6 +12,8 @@ def createCFAD(field_data, altitude_data, field_bins, height_bins, min_frac_thre
     This function returns a CFAD; a 2-dimensional histogram that is normalized by the number of points at each
     altitude.
 
+    Author: Laura Tomkins (@lauratomkins)
+
     Parameters
     ----------
     field_data : array
