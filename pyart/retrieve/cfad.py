@@ -5,7 +5,7 @@ Create CFAD from a radar object.
 
 import numpy as np
 
-def createCFAD(field_data, altitude_data, field_bins, height_bins, min_frac_thres=0.1):
+def createCFAD(field_data, altitude_data, field_bins, altitude_bins, min_frac_thres=0.1):
     """
     Contoured Frequency by Altitude Diagram.
 
@@ -23,7 +23,7 @@ def createCFAD(field_data, altitude_data, field_bins, height_bins, min_frac_thre
         Note: must be the same shape as `field_data`
     field_bins : list
         List of bin edges for field values to use for CFAD creation.
-    height_bins : list
+    altitude_bins : list
         List of bin edges for height values to use for CFAD creation.
     min_frac_thres : float, optional
         Fraction of values to remove in CFAD normalization (default 0.1). If an altitude row has a total count that
@@ -48,13 +48,9 @@ def createCFAD(field_data, altitude_data, field_bins, height_bins, min_frac_thre
 
     """
 
-    # validate inputs
-    if np.shape(field_data) != np.shape(altitude_data):
-
-
     # get raw bin counts
     freq, height_edges, field_edges = np.histogram2d(altitude_data.compressed(), field_data.compressed(),
-                                                     bins=[height_bins, field_bins])
+                                                     bins=[altitude_bins, field_bins])
 
     # sum counts over y axis (height)
     freq_sum = np.sum(freq, axis=1)

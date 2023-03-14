@@ -501,7 +501,7 @@ def image_mute_radar(radar, field, mute_field, mute_threshold, field_threshold=N
     melting precipitation.
 
     Author: Laura Tomkins (@lauratomkins)
-    
+
     Parameters
     ----------
     radar : Radar
