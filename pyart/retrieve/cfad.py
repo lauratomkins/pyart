@@ -10,7 +10,8 @@ def create_cfad(field_data, altitude_data, field_bins, altitude_bins, min_frac_t
     Contoured Frequency by Altitude Diagram.
 
     This function returns a CFAD; a 2-dimensional histogram that is normalized by the number of points at each
-    altitude.
+    altitude. Altitude bins are masked where the counts are less than min_frac_thres of the largest number of counts
+    for any altitude row.
 
     Author: Laura Tomkins (@lauratomkins)
 
@@ -28,7 +29,7 @@ def create_cfad(field_data, altitude_data, field_bins, altitude_bins, min_frac_t
     min_frac_thres : float, optional
         Fraction of values to remove in CFAD normalization (default 0.1). If an altitude row has a total count that
         is less than min_frac_thres of the largest number of total counts for any altitude row, the bins in that
-        altitude row are set to NaN.
+        altitude row are masked.
 
     Returns
     -------
