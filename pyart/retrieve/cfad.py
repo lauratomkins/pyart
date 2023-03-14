@@ -5,7 +5,7 @@ Create CFAD from a radar object.
 
 import numpy as np
 
-def createCFAD(field_data, altitude_data, field_bins, altitude_bins, min_frac_thres=0.1):
+def create_cfad(field_data, altitude_data, field_bins, altitude_bins, min_frac_thres=0.1):
     """
     Contoured Frequency by Altitude Diagram.
 
