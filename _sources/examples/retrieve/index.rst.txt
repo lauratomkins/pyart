@@ -10,6 +10,7 @@ Retrieval Examples
 Retrievals from various radars, such as additional fields or subsets of the data.
 
 
+
 .. raw:: html
 
     <div class="sphx-glr-thumbnails">
@@ -22,7 +23,7 @@ Retrievals from various radars, such as additional fields or subsets of the data
 .. only:: html
 
   .. image:: /examples/retrieve/images/thumb/sphx_glr_plot_column_subset_thumb.png
-    :alt: Extract a radar column above a point
+    :alt:
 
   :ref:`sphx_glr_examples_retrieve_plot_column_subset.py`
 
@@ -39,7 +40,7 @@ Retrievals from various radars, such as additional fields or subsets of the data
 .. only:: html
 
   .. image:: /examples/retrieve/images/thumb/sphx_glr_plot_composite_reflectivity_thumb.png
-    :alt: Calculate and Plot Composite Reflectivity
+    :alt:
 
   :ref:`sphx_glr_examples_retrieve_plot_composite_reflectivity.py`
 
@@ -56,7 +57,7 @@ Retrievals from various radars, such as additional fields or subsets of the data
 .. only:: html
 
   .. image:: /examples/retrieve/images/thumb/sphx_glr_plot_vad_thumb.png
-    :alt: Calculate and Plot VAD profile
+    :alt:
 
   :ref:`sphx_glr_examples_retrieve_plot_vad.py`
 
@@ -73,7 +74,7 @@ Retrievals from various radars, such as additional fields or subsets of the data
 .. only:: html
 
   .. image:: /examples/retrieve/images/thumb/sphx_glr_plot_hydrometeor_thumb.png
-    :alt: Calculate and Plot hydrometeor classification
+    :alt:
 
   :ref:`sphx_glr_examples_retrieve_plot_hydrometeor.py`
 
@@ -85,12 +86,12 @@ Retrievals from various radars, such as additional fields or subsets of the data
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="References ---------- Steiner, M. R., R. A. Houze Jr., and S. E. Yuter, 1995: Climatological Ch...">
+    <div class="sphx-glr-thumbcontainer" tooltip="Convective-Stratiform classification">
 
 .. only:: html
 
   .. image:: /examples/retrieve/images/thumb/sphx_glr_plot_convective_stratiform_thumb.png
-    :alt: Convective-Stratiform classification
+    :alt:
 
   :ref:`sphx_glr_examples_retrieve_plot_convective_stratiform.py`
 

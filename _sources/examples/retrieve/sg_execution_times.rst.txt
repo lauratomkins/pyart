@@ -3,18 +3,19 @@
 
 .. _sphx_glr_examples_retrieve_sg_execution_times:
 
+
 Computation times
 =================
-**00:59.640** total execution time for **examples_retrieve** files:
+**00:40.873** total execution time for **examples_retrieve** files:
 
 +-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_retrieve_plot_convective_stratiform.py` (``plot_convective_stratiform.py``)   | 00:39.170 | 0.0 MB |
+| :ref:`sphx_glr_examples_retrieve_plot_convective_stratiform.py` (``plot_convective_stratiform.py``)   | 00:26.613 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_retrieve_plot_vad.py` (``plot_vad.py``)                                       | 00:05.866 | 0.0 MB |
+| :ref:`sphx_glr_examples_retrieve_plot_vad.py` (``plot_vad.py``)                                       | 00:04.101 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_retrieve_plot_composite_reflectivity.py` (``plot_composite_reflectivity.py``) | 00:05.458 | 0.0 MB |
+| :ref:`sphx_glr_examples_retrieve_plot_composite_reflectivity.py` (``plot_composite_reflectivity.py``) | 00:03.768 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_retrieve_plot_hydrometeor.py` (``plot_hydrometeor.py``)                       | 00:05.249 | 0.0 MB |
+| :ref:`sphx_glr_examples_retrieve_plot_hydrometeor.py` (``plot_hydrometeor.py``)                       | 00:03.264 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_retrieve_plot_column_subset.py` (``plot_column_subset.py``)                   | 00:03.897 | 0.0 MB |
+| :ref:`sphx_glr_examples_retrieve_plot_column_subset.py` (``plot_column_subset.py``)                   | 00:03.126 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------+-----------+--------+

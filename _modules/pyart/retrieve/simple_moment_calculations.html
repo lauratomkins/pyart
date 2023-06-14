@@ -1,238 +1,483 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-theme="light">
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyart.retrieve.simple_moment_calculations &#8212; Py-ART 1.11.6.post267 documentation</title>
-    
+    <title>pyart.retrieve.simple_moment_calculations &#8212; Py-ART 1.11.6.post312 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyart-theme.css" />
-    
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-JJEG3CV376"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-JJEG3CV376');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pyart/retrieve/simple_moment_calculations';</script>
     <script src="../../../_static/doc_shared.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
+    <link rel="search" title="Search" href="../../../search.html" />
 
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JJEG3CV376"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-JJEG3CV376');
-                </script>
- 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
 <link
   rel="alternate"
   type="application/atom+xml"
   href="../../../blog/atom.xml"
   title="PyART Blog"
 />
- 
-<style type="text/css">
-  ul.ablog-archive {
-    list-style: none;
-    overflow: auto;
-    margin-left: 0px;
-  }
-  ul.ablog-archive li {
-    float: left;
-    margin-right: 5px;
-    font-size: 80%;
-  }
-  ul.postlist a {
-    font-style: italic;
-  }
-  ul.postlist-style-disc {
-    list-style-type: disc;
-  }
-  ul.postlist-style-none {
-    list-style-type: none;
-  }
-  ul.postlist-style-circle {
-    list-style-type: circle;
-  }
-</style>
+
+
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-  <nav class="navbar navbar-dark navbar-expand-lg bg-arm fixed-top bd-navbar shadow" id="navbar-main"><div class="container-xl">
-
-  <div id="navbar-start">
-    
-    
-<a class="navbar-brand" href="../../../index.html">
-<p class="title">Py-ART</p>
-</a>
-
-    
-  </div>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
 
   
-  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
-    <div id="navbar-center" class="mr-auto">
-      
-      <div class="navbar-center-item">
-        <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../userguide/index.html">
-  User Guide
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../API/index.html">
-  API Reference Manual
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../examples/index.html">
-  Example Gallery
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../notebook-gallery.html">
-  Notebook Gallery
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../blog.html">
-  Blog
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../changelog.html">
-  Changelog
- </a>
-</li>
-
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
     
-</ul>
-      </div>
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Py-ART 1.11.6.post312 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../userguide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../API/index.html">
+                        API Reference Manual
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        Example Gallery
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../notebook-gallery.html">
+                        Notebook Gallery
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../blog.html">
+                        Blog
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../changelog.html">
+                        Changelog
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+  </ul>
+</nav></div>
       
     </div>
-
-    <div id="navbar-end">
+    
+    
+    <div class="navbar-header-items__end">
       
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/ARM-DOE/pyart" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ARM-DOE/pyart" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
             <label class="sr-only">GitHub</label></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://twitter.com/Py_ART" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter-square"></i></span>
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/Py_ART" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter"></i></span>
             <label class="sr-only">Twitter</label></a>
         </li>
-      </ul>
-      </div>
+</ul></div>
       
     </div>
-  </div>
-</div>
-  </nav>
-
-
-    <div class="container-fluid" id="banner"></div>
-
-
-    <div class="container-xl">
-      <div class="row">
-          
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar">
-              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <div class="bd-toc-item active">
     
   </div>
-</nav>
-              </div>
-              <div class="sidebar-end-items">
-              </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../userguide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../API/index.html">
+                        API Reference Manual
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        Example Gallery
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../notebook-gallery.html">
+                        Notebook Gallery
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../blog.html">
+                        Blog
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../changelog.html">
+                        Changelog
+                      </a>
+                    </li>
+                
+                </div>
             </div>
             
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
           
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ARM-DOE/pyart" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/Py_ART" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-          
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-          </div>
-          
 
-          
-          
-            
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
               
-              <div>
-                 <h1>Source code for pyart.retrieve.simple_moment_calculations</h1><div class="highlight"><pre>
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">pyart.retrieve.simple_moment_calculations</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<h1>Source code for pyart.retrieve.simple_moment_calculations</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Simple moment calculations.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span>
-<span class="kn">from</span> <span class="nn">..config</span> <span class="kn">import</span> <span class="n">get_metadata</span><span class="p">,</span> <span class="n">get_field_name</span>
+
+<span class="kn">from</span> <span class="nn">..config</span> <span class="kn">import</span> <span class="n">get_field_name</span><span class="p">,</span> <span class="n">get_metadata</span>
 <span class="kn">from</span> <span class="nn">..core.transforms</span> <span class="kn">import</span> <span class="n">antenna_to_cartesian</span>
 <span class="kn">from</span> <span class="nn">..util</span> <span class="kn">import</span> <span class="n">angular_texture_2d</span>
 
 
 <div class="viewcode-block" id="calculate_snr_from_reflectivity"><a class="viewcode-back" href="../../../API/generated/pyart.retrieve.calculate_snr_from_reflectivity.html#pyart.retrieve.calculate_snr_from_reflectivity">[docs]</a><span class="k">def</span> <span class="nf">calculate_snr_from_reflectivity</span><span class="p">(</span>
-        <span class="n">radar</span><span class="p">,</span> <span class="n">refl_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">snr_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">toa</span><span class="o">=</span><span class="mf">25000.</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="n">radar</span><span class="p">,</span> <span class="n">refl_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">snr_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">toa</span><span class="o">=</span><span class="mf">25000.0</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate the signal to noise ratio, in dB, from the reflectivity field.</span>
 
 <span class="sd">    Parameters</span>
@@ -255,35 +500,36 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">refl_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">refl_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;reflectivity&#39;</span><span class="p">)</span>
+        <span class="n">refl_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;reflectivity&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">snr_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">snr_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;signal_to_noise_ratio&#39;</span><span class="p">)</span>
+        <span class="n">snr_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;signal_to_noise_ratio&quot;</span><span class="p">)</span>
 
-    <span class="n">range_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span>
-                             <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1.0</span>
+    <span class="n">range_grid</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1.0</span>
+    <span class="p">)</span>
 
     <span class="c1"># remove range scale.. This is basically the radar constant scaled dBm</span>
-    <span class="n">pseudo_power</span> <span class="o">=</span> <span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">refl_field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">-</span>
-                    <span class="mf">20.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">range_grid</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">))</span>
+    <span class="n">pseudo_power</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">refl_field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="mf">20.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span>
+        <span class="n">range_grid</span> <span class="o">/</span> <span class="mf">1000.0</span>
+    <span class="p">)</span>
 
     <span class="c1"># Noise floor estimate</span>
     <span class="c1"># 25km.. should be no scatterers, not even planes, this high</span>
     <span class="c1"># we could get undone by AP though.. also sun</span>
-    <span class="n">rg</span><span class="p">,</span> <span class="n">azg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span> <span class="n">radar</span><span class="o">.</span><span class="n">azimuth</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
-    <span class="n">rg</span><span class="p">,</span> <span class="n">eleg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span> <span class="n">radar</span><span class="o">.</span><span class="n">elevation</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
+    <span class="n">rg</span><span class="p">,</span> <span class="n">azg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span> <span class="n">radar</span><span class="o">.</span><span class="n">azimuth</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
+    <span class="n">rg</span><span class="p">,</span> <span class="n">eleg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span> <span class="n">radar</span><span class="o">.</span><span class="n">elevation</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
     <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">antenna_to_cartesian</span><span class="p">(</span><span class="n">rg</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">,</span> <span class="n">azg</span><span class="p">,</span> <span class="n">eleg</span><span class="p">)</span>  <span class="c1"># XXX: need to fix</span>
 
     <span class="n">points_above</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">z</span> <span class="o">&gt;</span> <span class="n">toa</span><span class="p">)</span>
     <span class="n">noise_floor_estimate</span> <span class="o">=</span> <span class="n">pseudo_power</span><span class="p">[</span><span class="n">points_above</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
     <span class="n">snr_dict</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">snr_field</span><span class="p">)</span>
-    <span class="n">snr_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pseudo_power</span> <span class="o">-</span> <span class="n">noise_floor_estimate</span>
+    <span class="n">snr_dict</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pseudo_power</span> <span class="o">-</span> <span class="n">noise_floor_estimate</span>
     <span class="k">return</span> <span class="n">snr_dict</span></div>
 
 
-<div class="viewcode-block" id="compute_noisedBZ"><a class="viewcode-back" href="../../../API/generated/pyart.retrieve.compute_noisedBZ.html#pyart.retrieve.compute_noisedBZ">[docs]</a><span class="k">def</span> <span class="nf">compute_noisedBZ</span><span class="p">(</span><span class="n">nrays</span><span class="p">,</span> <span class="n">noisedBZ_val</span><span class="p">,</span> <span class="n">_range</span><span class="p">,</span> <span class="n">ref_dist</span><span class="p">,</span>
-                     <span class="n">noise_field</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="compute_noisedBZ"><a class="viewcode-back" href="../../../API/generated/pyart.retrieve.compute_noisedBZ.html#pyart.retrieve.compute_noisedBZ">[docs]</a><span class="k">def</span> <span class="nf">compute_noisedBZ</span><span class="p">(</span><span class="n">nrays</span><span class="p">,</span> <span class="n">noisedBZ_val</span><span class="p">,</span> <span class="n">_range</span><span class="p">,</span> <span class="n">ref_dist</span><span class="p">,</span> <span class="n">noise_field</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes noise in dBZ from reference noise value.</span>
 
 <span class="sd">    Parameters</span>
@@ -307,18 +553,18 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># parse the field parameters</span>
     <span class="k">if</span> <span class="n">noise_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">noise_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;noisedBZ_hh&#39;</span><span class="p">)</span>
+        <span class="n">noise_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;noisedBZ_hh&quot;</span><span class="p">)</span>
 
-    <span class="n">noisedBZ_vec</span> <span class="o">=</span> <span class="n">noisedBZ_val</span><span class="o">+</span><span class="mf">20.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">1e-3</span><span class="o">*</span><span class="n">_range</span><span class="o">/</span><span class="n">ref_dist</span><span class="p">)</span>
+    <span class="n">noisedBZ_vec</span> <span class="o">=</span> <span class="n">noisedBZ_val</span> <span class="o">+</span> <span class="mf">20.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">1e-3</span> <span class="o">*</span> <span class="n">_range</span> <span class="o">/</span> <span class="n">ref_dist</span><span class="p">)</span>
 
     <span class="n">noisedBZ</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">noise_field</span><span class="p">)</span>
-    <span class="n">noisedBZ</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">noisedBZ_vec</span><span class="p">,</span> <span class="p">(</span><span class="n">nrays</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">noisedBZ</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">noisedBZ_vec</span><span class="p">,</span> <span class="p">(</span><span class="n">nrays</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">noisedBZ</span></div>
 
 
 <div class="viewcode-block" id="compute_snr"><a class="viewcode-back" href="../../../API/generated/pyart.retrieve.compute_snr.html#pyart.retrieve.compute_snr">[docs]</a><span class="k">def</span> <span class="nf">compute_snr</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">refl_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">noise_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">snr_field</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes SNR from a reflectivity field and the noise in dBZ.</span>
 
 <span class="sd">    Parameters</span>
@@ -340,32 +586,32 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># parse the field parameters</span>
     <span class="k">if</span> <span class="n">refl_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">refl_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;reflectivity&#39;</span><span class="p">)</span>
+        <span class="n">refl_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;reflectivity&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">noise_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">noise_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;noisedBZ_hh&#39;</span><span class="p">)</span>
+        <span class="n">noise_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;noisedBZ_hh&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">snr_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">snr_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;signal_to_noise_ratio&#39;</span><span class="p">)</span>
+        <span class="n">snr_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;signal_to_noise_ratio&quot;</span><span class="p">)</span>
 
     <span class="c1"># extract fields from radar</span>
     <span class="k">if</span> <span class="n">refl_field</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">:</span>
-        <span class="n">refl</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">refl_field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+        <span class="n">refl</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">refl_field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;Field not available: &#39;</span> <span class="o">+</span> <span class="n">refl_field</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Field not available: &quot;</span> <span class="o">+</span> <span class="n">refl_field</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">noise_field</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">:</span>
-        <span class="n">noisedBZ</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">noise_field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+        <span class="n">noisedBZ</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">noise_field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;Field not available: &#39;</span> <span class="o">+</span> <span class="n">noise_field</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Field not available: &quot;</span> <span class="o">+</span> <span class="n">noise_field</span><span class="p">)</span>
 
-    <span class="n">snr_data</span> <span class="o">=</span> <span class="n">refl</span><span class="o">-</span><span class="n">noisedBZ</span>
+    <span class="n">snr_data</span> <span class="o">=</span> <span class="n">refl</span> <span class="o">-</span> <span class="n">noisedBZ</span>
 
     <span class="n">snr</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">snr_field</span><span class="p">)</span>
-    <span class="n">snr</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">snr_data</span>
+    <span class="n">snr</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">snr_data</span>
 
     <span class="k">return</span> <span class="n">snr</span></div>
 
 
 <div class="viewcode-block" id="compute_l"><a class="viewcode-back" href="../../../API/generated/pyart.retrieve.compute_l.html#pyart.retrieve.compute_l">[docs]</a><span class="k">def</span> <span class="nf">compute_l</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">rhohv_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">l_field</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes Rhohv in logarithmic scale according to L=-log10(1-RhoHV).</span>
 
 <span class="sd">    Parameters</span>
@@ -379,33 +625,33 @@
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    l : dict</span>
+<span class="sd">    l_field_out : dict</span>
 <span class="sd">        L field.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># parse the field parameters</span>
     <span class="k">if</span> <span class="n">rhohv_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">rhohv_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;cross_correlation_ratio&#39;</span><span class="p">)</span>
+        <span class="n">rhohv_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;cross_correlation_ratio&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">l_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">l_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;logarithmic_cross_correlation_ratio&#39;</span><span class="p">)</span>
+        <span class="n">l_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;logarithmic_cross_correlation_ratio&quot;</span><span class="p">)</span>
 
     <span class="c1"># extract rhohv field from radar</span>
     <span class="k">if</span> <span class="n">rhohv_field</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">:</span>
-        <span class="n">rhohv</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">rhohv_field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+        <span class="n">rhohv</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">rhohv_field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;Field not available: &#39;</span> <span class="o">+</span> <span class="n">rhohv_field</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Field not available: &quot;</span> <span class="o">+</span> <span class="n">rhohv_field</span><span class="p">)</span>
 
-    <span class="n">rhohv</span><span class="p">[</span><span class="n">rhohv</span> <span class="o">&gt;=</span> <span class="mf">1.</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.9999</span>
-    <span class="n">l_data</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">rhohv</span><span class="p">)</span>
+    <span class="n">rhohv</span><span class="p">[</span><span class="n">rhohv</span> <span class="o">&gt;=</span> <span class="mf">1.0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.9999</span>
+    <span class="n">l_data</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">rhohv</span><span class="p">)</span>
 
-    <span class="n">l</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">l_field</span><span class="p">)</span>
-    <span class="n">l</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">l_data</span>
+    <span class="n">l_field_out</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">l_field</span><span class="p">)</span>
+    <span class="n">l_field_out</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">l_data</span>
 
-    <span class="k">return</span> <span class="n">l</span></div>
+    <span class="k">return</span> <span class="n">l_field_out</span></div>
 
 
 <div class="viewcode-block" id="compute_cdr"><a class="viewcode-back" href="../../../API/generated/pyart.retrieve.compute_cdr.html#pyart.retrieve.compute_cdr">[docs]</a><span class="k">def</span> <span class="nf">compute_cdr</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">rhohv_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">zdr_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cdr_field</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the Circular Depolarization Ratio.</span>
 
 <span class="sd">    Parameters</span>
@@ -427,38 +673,39 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># parse the field parameters</span>
     <span class="k">if</span> <span class="n">rhohv_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">rhohv_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;cross_correlation_ratio&#39;</span><span class="p">)</span>
+        <span class="n">rhohv_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;cross_correlation_ratio&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">zdr_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">zdr_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;differential_reflectivity&#39;</span><span class="p">)</span>
+        <span class="n">zdr_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;differential_reflectivity&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">cdr_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">cdr_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;circular_depolarization_ratio&#39;</span><span class="p">)</span>
+        <span class="n">cdr_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;circular_depolarization_ratio&quot;</span><span class="p">)</span>
 
     <span class="c1"># extract fields from radar</span>
     <span class="k">if</span> <span class="n">rhohv_field</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">:</span>
-        <span class="n">rhohv</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">rhohv_field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+        <span class="n">rhohv</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">rhohv_field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;Field not available: &#39;</span> <span class="o">+</span> <span class="n">rhohv_field</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Field not available: &quot;</span> <span class="o">+</span> <span class="n">rhohv_field</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">zdr_field</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">:</span>
-        <span class="n">zdrdB</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">zdr_field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+        <span class="n">zdrdB</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">zdr_field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;Field not available: &#39;</span> <span class="o">+</span> <span class="n">zdr_field</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Field not available: &quot;</span> <span class="o">+</span> <span class="n">zdr_field</span><span class="p">)</span>
 
-    <span class="n">zdr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">zdrdB</span><span class="p">)</span>
+    <span class="n">zdr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">zdrdB</span><span class="p">)</span>
 
-    <span class="n">cdr_data</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="mf">10.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span>
-            <span class="p">(</span><span class="mf">1.</span><span class="o">+</span><span class="mf">1.</span><span class="o">/</span><span class="n">zdr</span><span class="o">-</span><span class="mf">2.</span><span class="o">*</span><span class="n">rhohv</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">zdr</span><span class="p">))</span> <span class="o">/</span>
-            <span class="p">(</span><span class="mf">1.</span><span class="o">+</span><span class="mf">1.</span><span class="o">/</span><span class="n">zdr</span><span class="o">+</span><span class="mf">2.</span><span class="o">*</span><span class="n">rhohv</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">zdr</span><span class="p">))))</span>
+    <span class="n">cdr_data</span> <span class="o">=</span> <span class="mf">10.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span>
+        <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">zdr</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">rhohv</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">zdr</span><span class="p">))</span>
+        <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">zdr</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">rhohv</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">zdr</span><span class="p">))</span>
+    <span class="p">)</span>
 
     <span class="n">cdr</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">cdr_field</span><span class="p">)</span>
-    <span class="n">cdr</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cdr_data</span>
+    <span class="n">cdr</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cdr_data</span>
 
     <span class="k">return</span> <span class="n">cdr</span></div>
 
 
-<div class="viewcode-block" id="calculate_velocity_texture"><a class="viewcode-back" href="../../../API/generated/pyart.retrieve.calculate_velocity_texture.html#pyart.retrieve.calculate_velocity_texture">[docs]</a><span class="k">def</span> <span class="nf">calculate_velocity_texture</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">vel_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">wind_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">nyq</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                               <span class="n">check_nyq_uniform</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="calculate_velocity_texture"><a class="viewcode-back" href="../../../API/generated/pyart.retrieve.calculate_velocity_texture.html#pyart.retrieve.calculate_velocity_texture">[docs]</a><span class="k">def</span> <span class="nf">calculate_velocity_texture</span><span class="p">(</span>
+    <span class="n">radar</span><span class="p">,</span> <span class="n">vel_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">wind_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">nyq</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">check_nyq_uniform</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Derive the texture of the velocity field.</span>
 
 <span class="sd">    Parameters</span>
@@ -488,10 +735,10 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Parse names of velocity field</span>
     <span class="k">if</span> <span class="n">vel_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">vel_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;velocity&#39;</span><span class="p">)</span>
+        <span class="n">vel_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;velocity&quot;</span><span class="p">)</span>
 
     <span class="c1"># Allocate memory for texture field</span>
-    <span class="n">vel_texture</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">vel_field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">vel_texture</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">vel_field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
     <span class="c1"># If an array of nyquist velocities is derived, use different</span>
     <span class="c1"># nyquist velocites for each sweep in texture calculation according to</span>
@@ -499,61 +746,101 @@
 
     <span class="k">if</span> <span class="n">nyq</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="c1"># Find nyquist velocity if not specified</span>
-        <span class="n">nyq</span> <span class="o">=</span> <span class="p">[</span><span class="n">radar</span><span class="o">.</span><span class="n">get_nyquist_vel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">check_nyq_uniform</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span>
-               <span class="nb">range</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">nsweeps</span><span class="p">)]</span>
+        <span class="n">nyq</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">radar</span><span class="o">.</span><span class="n">get_nyquist_vel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">check_nyq_uniform</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">nsweeps</span><span class="p">)</span>
+        <span class="p">]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">radar</span><span class="o">.</span><span class="n">nsweeps</span><span class="p">):</span>
             <span class="n">start_ray</span><span class="p">,</span> <span class="n">end_ray</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">get_start_end</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
             <span class="n">inds</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">start_ray</span><span class="p">,</span> <span class="n">end_ray</span><span class="p">)</span>
-            <span class="n">vel_sweep</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">vel_field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">inds</span><span class="p">]</span>
-            <span class="n">vel_texture</span><span class="p">[</span><span class="n">inds</span><span class="p">]</span> <span class="o">=</span> <span class="n">angular_texture_2d</span><span class="p">(</span>
-                <span class="n">vel_sweep</span><span class="p">,</span> <span class="n">wind_size</span><span class="p">,</span> <span class="n">nyq</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">vel_sweep</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">vel_field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="n">inds</span><span class="p">]</span>
+            <span class="n">vel_texture</span><span class="p">[</span><span class="n">inds</span><span class="p">]</span> <span class="o">=</span> <span class="n">angular_texture_2d</span><span class="p">(</span><span class="n">vel_sweep</span><span class="p">,</span> <span class="n">wind_size</span><span class="p">,</span> <span class="n">nyq</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">vel_texture</span> <span class="o">=</span> <span class="n">angular_texture_2d</span><span class="p">(</span>
-            <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">vel_field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">],</span> <span class="n">wind_size</span><span class="p">,</span> <span class="n">nyq</span><span class="p">)</span>
-    <span class="n">vel_texture_field</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;velocity&#39;</span><span class="p">)</span>
-    <span class="n">vel_texture_field</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Doppler velocity texture&#39;</span>
-    <span class="n">vel_texture_field</span><span class="p">[</span><span class="s1">&#39;standard_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="s1">&#39;texture_of_radial_velocity&#39;</span> <span class="o">+</span> <span class="s1">&#39;_of_scatters_away_from_instrument&#39;</span><span class="p">)</span>
-    <span class="n">vel_texture_field</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">median_filter</span><span class="p">(</span><span class="n">vel_texture</span><span class="p">,</span>
-                                                      <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">wind_size</span><span class="p">,</span>
-                                                      <span class="n">wind_size</span><span class="p">))</span>
+            <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">vel_field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">],</span> <span class="n">wind_size</span><span class="p">,</span> <span class="n">nyq</span>
+        <span class="p">)</span>
+    <span class="n">vel_texture_field</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s2">&quot;velocity&quot;</span><span class="p">)</span>
+    <span class="n">vel_texture_field</span><span class="p">[</span><span class="s2">&quot;long_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Doppler velocity texture&quot;</span>
+    <span class="n">vel_texture_field</span><span class="p">[</span><span class="s2">&quot;standard_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;texture_of_radial_velocity&quot;</span> <span class="o">+</span> <span class="s2">&quot;_of_scatters_away_from_instrument&quot;</span>
+    <span class="p">)</span>
+    <span class="n">vel_texture_field</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">median_filter</span><span class="p">(</span>
+        <span class="n">vel_texture</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">wind_size</span><span class="p">,</span> <span class="n">wind_size</span><span class="p">)</span>
+    <span class="p">)</span>
     <span class="k">return</span> <span class="n">vel_texture_field</span></div>
 </pre></div>
-<div class="section">
-   
+<div class="section ablog__blog_comments">
+  
+  
 </div>
 
-              </div>
+                </article>
               
               
-              <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
 </div>
-              
-          </main>
-          
 
-      </div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-<footer class="footer mt-5 mt-md-0">
-  <div class="container">
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
     
-    <div class="footer-item">
-      <p class="copyright">
-    &copy; Copyright 2013-2022, Py-ART developers.<br>
-</p>
+      © Copyright 2013-2022, Py-ART developers.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    <br/>
+  </p>
+</div>
+      
     </div>
-    
-    <div class="footer-item">
-      <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
-</p>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
     </div>
-    
-  </div>
-</footer>
+  
+</div>
+
+  </footer>
   </body>
 </html>

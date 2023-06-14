@@ -1,222 +1,466 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-theme="light">
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyart.map.grid_mapper &#8212; Py-ART 1.11.6.post267 documentation</title>
-    
+    <title>pyart.map.grid_mapper &#8212; Py-ART 1.11.6.post312 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyart-theme.css" />
-    
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-JJEG3CV376"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-JJEG3CV376');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pyart/map/grid_mapper';</script>
     <script src="../../../_static/doc_shared.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
+    <link rel="search" title="Search" href="../../../search.html" />
 
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JJEG3CV376"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-JJEG3CV376');
-                </script>
- 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
 <link
   rel="alternate"
   type="application/atom+xml"
   href="../../../blog/atom.xml"
   title="PyART Blog"
 />
- 
-<style type="text/css">
-  ul.ablog-archive {
-    list-style: none;
-    overflow: auto;
-    margin-left: 0px;
-  }
-  ul.ablog-archive li {
-    float: left;
-    margin-right: 5px;
-    font-size: 80%;
-  }
-  ul.postlist a {
-    font-style: italic;
-  }
-  ul.postlist-style-disc {
-    list-style-type: disc;
-  }
-  ul.postlist-style-none {
-    list-style-type: none;
-  }
-  ul.postlist-style-circle {
-    list-style-type: circle;
-  }
-</style>
+
+
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-  <nav class="navbar navbar-dark navbar-expand-lg bg-arm fixed-top bd-navbar shadow" id="navbar-main"><div class="container-xl">
-
-  <div id="navbar-start">
-    
-    
-<a class="navbar-brand" href="../../../index.html">
-<p class="title">Py-ART</p>
-</a>
-
-    
-  </div>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
 
   
-  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
-    <div id="navbar-center" class="mr-auto">
-      
-      <div class="navbar-center-item">
-        <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../userguide/index.html">
-  User Guide
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../API/index.html">
-  API Reference Manual
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../examples/index.html">
-  Example Gallery
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../notebook-gallery.html">
-  Notebook Gallery
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../blog.html">
-  Blog
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../changelog.html">
-  Changelog
- </a>
-</li>
-
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
     
-</ul>
-      </div>
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Py-ART 1.11.6.post312 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../userguide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../API/index.html">
+                        API Reference Manual
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        Example Gallery
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../notebook-gallery.html">
+                        Notebook Gallery
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../blog.html">
+                        Blog
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../changelog.html">
+                        Changelog
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+  </ul>
+</nav></div>
       
     </div>
-
-    <div id="navbar-end">
+    
+    
+    <div class="navbar-header-items__end">
       
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/ARM-DOE/pyart" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ARM-DOE/pyart" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
             <label class="sr-only">GitHub</label></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://twitter.com/Py_ART" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter-square"></i></span>
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/Py_ART" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter"></i></span>
             <label class="sr-only">Twitter</label></a>
         </li>
-      </ul>
-      </div>
+</ul></div>
       
     </div>
-  </div>
-</div>
-  </nav>
-
-
-    <div class="container-fluid" id="banner"></div>
-
-
-    <div class="container-xl">
-      <div class="row">
-          
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar">
-              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <div class="bd-toc-item active">
     
   </div>
-</nav>
-              </div>
-              <div class="sidebar-end-items">
-              </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../userguide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../API/index.html">
+                        API Reference Manual
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        Example Gallery
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../notebook-gallery.html">
+                        Notebook Gallery
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../blog.html">
+                        Blog
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../changelog.html">
+                        Changelog
+                      </a>
+                    </li>
+                
+                </div>
             </div>
             
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
           
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ARM-DOE/pyart" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/Py_ART" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-          
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-          </div>
-          
 
-          
-          
-            
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
               
-              <div>
-                 <h1>Source code for pyart.map.grid_mapper</h1><div class="highlight"><pre>
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">pyart.map.grid_mapper</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<h1>Source code for pyart.map.grid_mapper</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Utilities for mapping radar objects to Cartesian grids.</span>
 
@@ -229,9 +473,9 @@
 <span class="kn">import</span> <span class="nn">scipy.spatial</span>
 
 <span class="kn">from</span> <span class="nn">..config</span> <span class="kn">import</span> <span class="n">get_fillvalue</span><span class="p">,</span> <span class="n">get_metadata</span>
-<span class="kn">from</span> <span class="nn">..core.transforms</span> <span class="kn">import</span> <span class="n">geographic_to_cartesian</span>
 <span class="kn">from</span> <span class="nn">..core.grid</span> <span class="kn">import</span> <span class="n">Grid</span>
 <span class="kn">from</span> <span class="nn">..core.radar</span> <span class="kn">import</span> <span class="n">Radar</span>
+<span class="kn">from</span> <span class="nn">..core.transforms</span> <span class="kn">import</span> <span class="n">geographic_to_cartesian</span>
 <span class="kn">from</span> <span class="nn">..filters</span> <span class="kn">import</span> <span class="n">GateFilter</span><span class="p">,</span> <span class="n">moment_based_gate_filter</span>
 <span class="kn">from</span> <span class="nn">..io.common</span> <span class="kn">import</span> <span class="n">make_time_unit_str</span>
 <span class="kn">from</span> <span class="nn">._load_nn_field_data</span> <span class="kn">import</span> <span class="n">_load_nn_field_data</span>
@@ -239,10 +483,15 @@
 <span class="kn">from</span> <span class="nn">.gates_to_grid</span> <span class="kn">import</span> <span class="n">map_gates_to_grid</span>
 
 
-<div class="viewcode-block" id="grid_from_radars"><a class="viewcode-back" href="../../../API/generated/pyart.map.grid_from_radars.html#pyart.map.grid_from_radars">[docs]</a><span class="k">def</span> <span class="nf">grid_from_radars</span><span class="p">(</span><span class="n">radars</span><span class="p">,</span> <span class="n">grid_shape</span><span class="p">,</span> <span class="n">grid_limits</span><span class="p">,</span>
-                     <span class="n">gridding_algo</span><span class="o">=</span><span class="s1">&#39;map_gates_to_grid&#39;</span><span class="p">,</span> <span class="n">copy_field_dtypes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                     <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="grid_from_radars"><a class="viewcode-back" href="../../../API/generated/pyart.map.grid_from_radars.html#pyart.map.grid_from_radars">[docs]</a><span class="k">def</span> <span class="nf">grid_from_radars</span><span class="p">(</span>
+    <span class="n">radars</span><span class="p">,</span>
+    <span class="n">grid_shape</span><span class="p">,</span>
+    <span class="n">grid_limits</span><span class="p">,</span>
+    <span class="n">gridding_algo</span><span class="o">=</span><span class="s2">&quot;map_gates_to_grid&quot;</span><span class="p">,</span>
+    <span class="n">copy_field_dtypes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Map one or more radars to a Cartesian grid returning a Grid object.</span>
 
 <span class="sd">    Additional arguments are passed to :py:func:`map_to_grid` or</span>
@@ -294,131 +543,142 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># make a tuple if passed a radar object as the first argument</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">radars</span><span class="p">,</span> <span class="n">Radar</span><span class="p">):</span>
-        <span class="n">radars</span> <span class="o">=</span> <span class="p">(</span><span class="n">radars</span><span class="p">,</span> <span class="p">)</span>
+        <span class="n">radars</span> <span class="o">=</span> <span class="p">(</span><span class="n">radars</span><span class="p">,)</span>
 
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">radars</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Length of radars tuple cannot be zero&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Length of radars tuple cannot be zero&quot;</span><span class="p">)</span>
 
     <span class="c1"># map the radar(s) to a cartesian grid</span>
-    <span class="k">if</span> <span class="n">gridding_algo</span> <span class="o">==</span> <span class="s1">&#39;map_to_grid&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">gridding_algo</span> <span class="o">==</span> <span class="s2">&quot;map_to_grid&quot;</span><span class="p">:</span>
         <span class="n">grids</span> <span class="o">=</span> <span class="n">map_to_grid</span><span class="p">(</span><span class="n">radars</span><span class="p">,</span> <span class="n">grid_shape</span><span class="p">,</span> <span class="n">grid_limits</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">gridding_algo</span> <span class="o">==</span> <span class="s1">&#39;map_gates_to_grid&#39;</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">gridding_algo</span> <span class="o">==</span> <span class="s2">&quot;map_gates_to_grid&quot;</span><span class="p">:</span>
         <span class="n">grids</span> <span class="o">=</span> <span class="n">map_gates_to_grid</span><span class="p">(</span><span class="n">radars</span><span class="p">,</span> <span class="n">grid_shape</span><span class="p">,</span> <span class="n">grid_limits</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;invalid gridding_algo&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;invalid gridding_algo&quot;</span><span class="p">)</span>
 
     <span class="c1"># create and populate the field dictionary</span>
     <span class="n">fields</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">first_radar</span> <span class="o">=</span> <span class="n">radars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">grids</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">field</span> <span class="o">==</span> <span class="s1">&#39;ROI&#39;</span><span class="p">:</span>
-            <span class="n">fields</span><span class="p">[</span><span class="s1">&#39;ROI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">grids</span><span class="p">[</span><span class="s1">&#39;ROI&#39;</span><span class="p">],</span>
-                <span class="s1">&#39;standard_name&#39;</span><span class="p">:</span> <span class="s1">&#39;radius_of_influence&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;long_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Radius of influence for mapping&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;least_significant_digit&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                <span class="s1">&#39;_FillValue&#39;</span><span class="p">:</span> <span class="n">get_fillvalue</span><span class="p">()}</span>
+        <span class="k">if</span> <span class="n">field</span> <span class="o">==</span> <span class="s2">&quot;ROI&quot;</span><span class="p">:</span>
+            <span class="n">fields</span><span class="p">[</span><span class="s2">&quot;ROI&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">grids</span><span class="p">[</span><span class="s2">&quot;ROI&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;standard_name&quot;</span><span class="p">:</span> <span class="s2">&quot;radius_of_influence&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Radius of influence for mapping&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;least_significant_digit&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;_FillValue&quot;</span><span class="p">:</span> <span class="n">get_fillvalue</span><span class="p">(),</span>
+            <span class="p">}</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">grids</span><span class="p">[</span><span class="n">field</span><span class="p">]}</span>
+            <span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">grids</span><span class="p">[</span><span class="n">field</span><span class="p">]}</span>
             <span class="c1"># copy the metadata from the radar to the grid</span>
             <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">first_radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;data&quot;</span><span class="p">:</span>
                     <span class="k">continue</span>
                 <span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">first_radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
 
     <span class="c1"># time dictionaries</span>
-    <span class="n">time</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;grid_time&#39;</span><span class="p">)</span>
-    <span class="n">time</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">first_radar</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]])</span>
-    <span class="n">time</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">first_radar</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s2">&quot;grid_time&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">first_radar</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]])</span>
+    <span class="n">time</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">first_radar</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span>
 
     <span class="c1"># grid coordinate dictionaries</span>
     <span class="n">nz</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">nx</span> <span class="o">=</span> <span class="n">grid_shape</span>
     <span class="p">(</span><span class="n">z0</span><span class="p">,</span> <span class="n">z1</span><span class="p">),</span> <span class="p">(</span><span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span> <span class="o">=</span> <span class="n">grid_limits</span>
 
-    <span class="n">x</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-    <span class="n">x</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
 
-    <span class="n">y</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-    <span class="n">y</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+    <span class="n">y</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
 
-    <span class="n">z</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
-    <span class="n">z</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">z0</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">nz</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">)</span>
+    <span class="n">z</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">z0</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">nz</span><span class="p">)</span>
 
     <span class="c1"># grid origin location dictionaries</span>
-    <span class="n">origin_latitude</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;origin_latitude&#39;</span><span class="p">)</span>
-    <span class="n">origin_longitude</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;origin_longitude&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s1">&#39;grid_origin&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-        <span class="n">origin_latitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;grid_origin&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]])</span>
-        <span class="n">origin_longitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;grid_origin&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="n">origin_latitude</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s2">&quot;origin_latitude&quot;</span><span class="p">)</span>
+    <span class="n">origin_longitude</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s2">&quot;origin_longitude&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;grid_origin&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="n">origin_latitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;grid_origin&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]])</span>
+        <span class="n">origin_longitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;grid_origin&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]])</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">origin_latitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">first_radar</span><span class="o">.</span><span class="n">latitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
-        <span class="n">origin_longitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">first_radar</span><span class="o">.</span><span class="n">longitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+        <span class="n">origin_latitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">first_radar</span><span class="o">.</span><span class="n">latitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+        <span class="n">origin_longitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">first_radar</span><span class="o">.</span><span class="n">longitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
 
-    <span class="n">origin_altitude</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;origin_altitude&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s1">&#39;grid_origin_alt&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-        <span class="n">origin_altitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;grid_origin_alt&#39;</span><span class="p">]])</span>
+    <span class="n">origin_altitude</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s2">&quot;origin_altitude&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;grid_origin_alt&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="n">origin_altitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;grid_origin_alt&quot;</span><span class="p">]])</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">origin_altitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">first_radar</span><span class="o">.</span><span class="n">altitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+        <span class="n">origin_altitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">first_radar</span><span class="o">.</span><span class="n">altitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
 
     <span class="c1"># metadata dictionary</span>
     <span class="n">metadata</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">first_radar</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
 
     <span class="c1"># create radar_ dictionaries</span>
-    <span class="n">radar_latitude</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;radar_latitude&#39;</span><span class="p">)</span>
-    <span class="n">radar_latitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-        <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">latitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">radars</span><span class="p">])</span>
+    <span class="n">radar_latitude</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s2">&quot;radar_latitude&quot;</span><span class="p">)</span>
+    <span class="n">radar_latitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">latitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">radars</span><span class="p">])</span>
 
-    <span class="n">radar_longitude</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;radar_longitude&#39;</span><span class="p">)</span>
-    <span class="n">radar_longitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-        <span class="p">[</span><span class="n">radar</span><span class="o">.</span><span class="n">longitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">radar</span> <span class="ow">in</span> <span class="n">radars</span><span class="p">])</span>
+    <span class="n">radar_longitude</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s2">&quot;radar_longitude&quot;</span><span class="p">)</span>
+    <span class="n">radar_longitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">radar</span><span class="o">.</span><span class="n">longitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">radar</span> <span class="ow">in</span> <span class="n">radars</span><span class="p">])</span>
 
-    <span class="n">radar_altitude</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;radar_altitude&#39;</span><span class="p">)</span>
-    <span class="n">radar_altitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-        <span class="p">[</span><span class="n">radar</span><span class="o">.</span><span class="n">altitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">radar</span> <span class="ow">in</span> <span class="n">radars</span><span class="p">])</span>
+    <span class="n">radar_altitude</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s2">&quot;radar_altitude&quot;</span><span class="p">)</span>
+    <span class="n">radar_altitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">radar</span><span class="o">.</span><span class="n">altitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">radar</span> <span class="ow">in</span> <span class="n">radars</span><span class="p">])</span>
 
-    <span class="n">radar_time</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;radar_time&#39;</span><span class="p">)</span>
+    <span class="n">radar_time</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s2">&quot;radar_time&quot;</span><span class="p">)</span>
     <span class="n">times</span><span class="p">,</span> <span class="n">units</span> <span class="o">=</span> <span class="n">_unify_times_for_radars</span><span class="p">(</span><span class="n">radars</span><span class="p">)</span>
-    <span class="n">radar_time</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">units</span>
-    <span class="n">radar_time</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">times</span>
+    <span class="n">radar_time</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">units</span>
+    <span class="n">radar_time</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">times</span>
 
-    <span class="n">radar_name</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;radar_name&#39;</span><span class="p">)</span>
-    <span class="n">name_key</span> <span class="o">=</span> <span class="s1">&#39;instrument_name&#39;</span>
-    <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">radar</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="n">name_key</span><span class="p">]</span> <span class="k">if</span> <span class="n">name_key</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">metadata</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
-             <span class="k">for</span> <span class="n">radar</span> <span class="ow">in</span> <span class="n">radars</span><span class="p">]</span>
-    <span class="n">radar_name</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+    <span class="n">radar_name</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="s2">&quot;radar_name&quot;</span><span class="p">)</span>
+    <span class="n">name_key</span> <span class="o">=</span> <span class="s2">&quot;instrument_name&quot;</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">radar</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="n">name_key</span><span class="p">]</span> <span class="k">if</span> <span class="n">name_key</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">metadata</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">radar</span> <span class="ow">in</span> <span class="n">radars</span>
+    <span class="p">]</span>
+    <span class="n">radar_name</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
 
-    <span class="n">projection</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;grid_projection&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">projection</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;grid_projection&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
     <span class="c1"># Copies radar field dtypes to grid field dtypes if True.</span>
     <span class="k">if</span> <span class="n">copy_field_dtypes</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">fields</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="k">if</span> <span class="n">field</span> <span class="o">==</span> <span class="s1">&#39;ROI&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">field</span> <span class="o">==</span> <span class="s2">&quot;ROI&quot;</span><span class="p">:</span>
                 <span class="k">continue</span>
-            <span class="n">dtype</span> <span class="o">=</span> <span class="n">first_radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
-            <span class="n">fields</span><span class="p">[</span>
-                <span class="n">field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+            <span class="n">dtype</span> <span class="o">=</span> <span class="n">first_radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
+            <span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">Grid</span><span class="p">(</span>
-        <span class="n">time</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span>
-        <span class="n">origin_latitude</span><span class="p">,</span> <span class="n">origin_longitude</span><span class="p">,</span> <span class="n">origin_altitude</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span>
-        <span class="n">radar_latitude</span><span class="o">=</span><span class="n">radar_latitude</span><span class="p">,</span> <span class="n">radar_longitude</span><span class="o">=</span><span class="n">radar_longitude</span><span class="p">,</span>
-        <span class="n">radar_altitude</span><span class="o">=</span><span class="n">radar_altitude</span><span class="p">,</span> <span class="n">radar_name</span><span class="o">=</span><span class="n">radar_name</span><span class="p">,</span>
-        <span class="n">radar_time</span><span class="o">=</span><span class="n">radar_time</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">projection</span><span class="p">)</span></div>
+        <span class="n">time</span><span class="p">,</span>
+        <span class="n">fields</span><span class="p">,</span>
+        <span class="n">metadata</span><span class="p">,</span>
+        <span class="n">origin_latitude</span><span class="p">,</span>
+        <span class="n">origin_longitude</span><span class="p">,</span>
+        <span class="n">origin_altitude</span><span class="p">,</span>
+        <span class="n">x</span><span class="p">,</span>
+        <span class="n">y</span><span class="p">,</span>
+        <span class="n">z</span><span class="p">,</span>
+        <span class="n">radar_latitude</span><span class="o">=</span><span class="n">radar_latitude</span><span class="p">,</span>
+        <span class="n">radar_longitude</span><span class="o">=</span><span class="n">radar_longitude</span><span class="p">,</span>
+        <span class="n">radar_altitude</span><span class="o">=</span><span class="n">radar_altitude</span><span class="p">,</span>
+        <span class="n">radar_name</span><span class="o">=</span><span class="n">radar_name</span><span class="p">,</span>
+        <span class="n">radar_time</span><span class="o">=</span><span class="n">radar_time</span><span class="p">,</span>
+        <span class="n">projection</span><span class="o">=</span><span class="n">projection</span><span class="p">,</span>
+    <span class="p">)</span></div>
 
 
 <span class="k">def</span> <span class="nf">_unify_times_for_radars</span><span class="p">(</span><span class="n">radars</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Return unified start times and units for a number of radars. &quot;&quot;&quot;</span>
-    <span class="n">dates</span> <span class="o">=</span> <span class="p">[</span><span class="n">netCDF4</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">radar</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">])</span>
-             <span class="k">for</span> <span class="n">radar</span> <span class="ow">in</span> <span class="n">radars</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return unified start times and units for a number of radars.&quot;&quot;&quot;</span>
+    <span class="n">dates</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">netCDF4</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">radar</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">])</span> <span class="k">for</span> <span class="n">radar</span> <span class="ow">in</span> <span class="n">radars</span>
+    <span class="p">]</span>
     <span class="n">units</span> <span class="o">=</span> <span class="n">make_time_unit_str</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">dates</span><span class="p">))</span>
     <span class="n">times</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">times</span><span class="p">,</span> <span class="n">units</span>
 
 
 <span class="k">class</span> <span class="nc">NNLocator</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Nearest neighbor locator.</span>
 
 <span class="sd">    Class for finding the neighbors of a points within a given distance.</span>
@@ -439,17 +699,17 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">leafsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;kd_tree&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; initalize. &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">leafsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;kd_tree&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;initalize.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_algorithm</span> <span class="o">=</span> <span class="n">algorithm</span>
 
-        <span class="k">if</span> <span class="n">algorithm</span> <span class="o">==</span> <span class="s1">&#39;kd_tree&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">algorithm</span> <span class="o">==</span> <span class="s2">&quot;kd_tree&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">tree</span> <span class="o">=</span> <span class="n">cKDTree</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">leafsize</span><span class="o">=</span><span class="n">leafsize</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;invalid algorithm&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;invalid algorithm&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">find_neighbors_and_dists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find all neighbors and distances within a given distance.</span>
 
 <span class="sd">        Parameters</span>
@@ -467,7 +727,7 @@
 <span class="sd">            Distances to the neighbors.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_algorithm</span> <span class="o">==</span> <span class="s1">&#39;kd_tree&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_algorithm</span> <span class="o">==</span> <span class="s2">&quot;kd_tree&quot;</span><span class="p">:</span>
             <span class="n">ind</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">query_ball_point</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">ind</span><span class="p">,</span> <span class="mi">0</span>
@@ -476,15 +736,32 @@
             <span class="k">return</span> <span class="n">ind</span><span class="p">,</span> <span class="n">dist</span>
 
 
-<div class="viewcode-block" id="map_to_grid"><a class="viewcode-back" href="../../../API/generated/pyart.map.map_to_grid.html#pyart.map.map_to_grid">[docs]</a><span class="k">def</span> <span class="nf">map_to_grid</span><span class="p">(</span><span class="n">radars</span><span class="p">,</span> <span class="n">grid_shape</span><span class="p">,</span> <span class="n">grid_limits</span><span class="p">,</span> <span class="n">grid_origin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                <span class="n">grid_origin_alt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">grid_projection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                <span class="n">fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gatefilters</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                <span class="n">map_roi</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">weighting_function</span><span class="o">=</span><span class="s1">&#39;Barnes2&#39;</span><span class="p">,</span> <span class="n">toa</span><span class="o">=</span><span class="mf">17000.0</span><span class="p">,</span>
-                <span class="n">copy_field_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;kd_tree&#39;</span><span class="p">,</span> <span class="n">leafsize</span><span class="o">=</span><span class="mf">10.</span><span class="p">,</span>
-                <span class="n">roi_func</span><span class="o">=</span><span class="s1">&#39;dist_beam&#39;</span><span class="p">,</span> <span class="n">constant_roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                <span class="n">z_factor</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">xy_factor</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">min_radius</span><span class="o">=</span><span class="mf">500.0</span><span class="p">,</span>
-                <span class="n">h_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">bsp</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="map_to_grid"><a class="viewcode-back" href="../../../API/generated/pyart.map.map_to_grid.html#pyart.map.map_to_grid">[docs]</a><span class="k">def</span> <span class="nf">map_to_grid</span><span class="p">(</span>
+    <span class="n">radars</span><span class="p">,</span>
+    <span class="n">grid_shape</span><span class="p">,</span>
+    <span class="n">grid_limits</span><span class="p">,</span>
+    <span class="n">grid_origin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">grid_origin_alt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">grid_projection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">gatefilters</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">map_roi</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">weighting_function</span><span class="o">=</span><span class="s2">&quot;Barnes2&quot;</span><span class="p">,</span>
+    <span class="n">toa</span><span class="o">=</span><span class="mf">17000.0</span><span class="p">,</span>
+    <span class="n">copy_field_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;kd_tree&quot;</span><span class="p">,</span>
+    <span class="n">leafsize</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
+    <span class="n">roi_func</span><span class="o">=</span><span class="s2">&quot;dist_beam&quot;</span><span class="p">,</span>
+    <span class="n">constant_roi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">z_factor</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+    <span class="n">xy_factor</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span>
+    <span class="n">min_radius</span><span class="o">=</span><span class="mf">500.0</span><span class="p">,</span>
+    <span class="n">h_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">nb</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
+    <span class="n">bsp</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Map one or more radars to a Cartesian grid.</span>
 
 <span class="sd">    Generate a Cartesian grid of points for the requested fields from the</span>
@@ -617,10 +894,10 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># make a tuple if passed a radar object as the first argument</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">radars</span><span class="p">,</span> <span class="n">Radar</span><span class="p">):</span>
-        <span class="n">radars</span> <span class="o">=</span> <span class="p">(</span><span class="n">radars</span><span class="p">,</span> <span class="p">)</span>
-        
+        <span class="n">radars</span> <span class="o">=</span> <span class="p">(</span><span class="n">radars</span><span class="p">,)</span>
+
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">radars</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Length of radars tuple cannot be zero&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Length of radars tuple cannot be zero&quot;</span><span class="p">)</span>
 
     <span class="n">skip_transform</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">radars</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">grid_origin_alt</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">grid_origin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -628,43 +905,41 @@
 
     <span class="c1"># parse the gatefilters argument</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">gatefilters</span><span class="p">,</span> <span class="n">GateFilter</span><span class="p">):</span>
-        <span class="n">gatefilters</span> <span class="o">=</span> <span class="p">(</span><span class="n">gatefilters</span><span class="p">,</span> <span class="p">)</span>  <span class="c1"># make tuple if single filter passed</span>
+        <span class="n">gatefilters</span> <span class="o">=</span> <span class="p">(</span><span class="n">gatefilters</span><span class="p">,)</span>  <span class="c1"># make tuple if single filter passed</span>
     <span class="k">if</span> <span class="n">gatefilters</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
-        <span class="n">gatefilters</span> <span class="o">=</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">radars</span><span class="p">)</span>
+        <span class="n">gatefilters</span> <span class="o">=</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">radars</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">gatefilters</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">gatefilters</span> <span class="o">=</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">radars</span><span class="p">)</span>
+        <span class="n">gatefilters</span> <span class="o">=</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">radars</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">gatefilters</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">radars</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Length of gatefilters must match length of radars&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Length of gatefilters must match length of radars&quot;</span><span class="p">)</span>
 
     <span class="c1"># check the parameters</span>
-    <span class="k">if</span> <span class="n">weighting_function</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
-            <span class="s1">&#39;CRESSMAN&#39;</span><span class="p">,</span> <span class="s1">&#39;BARNES2&#39;</span><span class="p">,</span> <span class="s1">&#39;BARNES&#39;</span><span class="p">,</span> <span class="s1">&#39;NEAREST&#39;</span><span class="p">]:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;unknown weighting_function&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">algorithm</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;kd_tree&#39;</span><span class="p">]:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;unknown algorithm: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">algorithm</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">weighting_function</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;CRESSMAN&quot;</span><span class="p">,</span> <span class="s2">&quot;BARNES2&quot;</span><span class="p">,</span> <span class="s2">&quot;BARNES&quot;</span><span class="p">,</span> <span class="s2">&quot;NEAREST&quot;</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;unknown weighting_function&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">algorithm</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;kd_tree&quot;</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;unknown algorithm: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">algorithm</span><span class="p">)</span>
     <span class="n">badval</span> <span class="o">=</span> <span class="n">get_fillvalue</span><span class="p">()</span>
 
     <span class="c1"># parse the grid_projection</span>
     <span class="k">if</span> <span class="n">grid_projection</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">grid_projection</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;proj&#39;</span><span class="p">:</span> <span class="s1">&#39;pyart_aeqd&#39;</span><span class="p">,</span> <span class="s1">&#39;_include_lon_0_lat_0&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+        <span class="n">grid_projection</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;proj&quot;</span><span class="p">:</span> <span class="s2">&quot;pyart_aeqd&quot;</span><span class="p">,</span> <span class="s2">&quot;_include_lon_0_lat_0&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
 
     <span class="c1"># find the grid origin if not given</span>
     <span class="k">if</span> <span class="n">grid_origin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">lat</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">radars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">latitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
-            <span class="n">lon</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">radars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">longitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
+            <span class="n">lat</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">radars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">latitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
+            <span class="n">lon</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">radars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">longitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-            <span class="n">lat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">radars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">latitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
-            <span class="n">lon</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">radars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">longitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
+            <span class="n">lat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">radars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">latitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
+            <span class="n">lon</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">radars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">longitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
         <span class="n">grid_origin</span> <span class="o">=</span> <span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
     <span class="n">grid_origin_lat</span><span class="p">,</span> <span class="n">grid_origin_lon</span> <span class="o">=</span> <span class="n">grid_origin</span>
 
     <span class="k">if</span> <span class="n">grid_origin_alt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">grid_origin_alt</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">radars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">altitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
+            <span class="n">grid_origin_alt</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">radars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">altitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-            <span class="n">grid_origin_alt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">radars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">altitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
+            <span class="n">grid_origin_alt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">radars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">altitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
 
     <span class="c1"># fields which should be mapped, None for fields which are in all radars</span>
     <span class="k">if</span> <span class="n">fields</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -676,7 +951,7 @@
 
     <span class="c1"># determine the number of gates (collected points) in each radar</span>
     <span class="n">nradars</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">radars</span><span class="p">)</span>
-    <span class="n">ngates_per_radar</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">fields</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">radars</span><span class="p">]</span>
+    <span class="n">ngates_per_radar</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">fields</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">radars</span><span class="p">]</span>
     <span class="n">total_gates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ngates_per_radar</span><span class="p">)</span>
     <span class="n">gate_offset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">ngates_per_radar</span><span class="p">)</span>
 
@@ -685,7 +960,7 @@
     <span class="n">gate_locations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">total_gates</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
     <span class="n">include_gate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">total_gates</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>
 
-    <span class="n">offsets</span> <span class="o">=</span> <span class="p">[]</span>    <span class="c1"># offsets from the grid origin, in meters, for each radar</span>
+    <span class="n">offsets</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># offsets from the grid origin, in meters, for each radar</span>
 
     <span class="c1"># create a field lookup tables</span>
     <span class="k">if</span> <span class="n">copy_field_data</span><span class="p">:</span>
@@ -698,38 +973,38 @@
         <span class="c1"># array pointing to the radar fields themselved, no copies are made.</span>
         <span class="c1"># A table mapping filtered gates to raw gates is created later.</span>
         <span class="c1"># Since the dtype is not not know this method is slow.</span>
-        <span class="n">field_data_objs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">nfields</span><span class="p">,</span> <span class="n">nradars</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">)</span>
+        <span class="n">field_data_objs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">nfields</span><span class="p">,</span> <span class="n">nradars</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)</span>
         <span class="c1"># We also need to know how many gates from each radar are included</span>
         <span class="c1"># in the NNLocator, the filtered_gates_per_radar list records this</span>
         <span class="n">filtered_gates_per_radar</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="n">projparams</span> <span class="o">=</span> <span class="n">grid_projection</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">projparams</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;_include_lon_0_lat_0&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
-        <span class="n">projparams</span><span class="p">[</span><span class="s1">&#39;lon_0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid_origin_lon</span>
-        <span class="n">projparams</span><span class="p">[</span><span class="s1">&#39;lat_0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid_origin_lat</span>
+    <span class="k">if</span> <span class="n">projparams</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;_include_lon_0_lat_0&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="n">projparams</span><span class="p">[</span><span class="s2">&quot;lon_0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid_origin_lon</span>
+        <span class="n">projparams</span><span class="p">[</span><span class="s2">&quot;lat_0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid_origin_lat</span>
 
     <span class="c1"># loop over the radars finding gate locations, field data, and offset</span>
     <span class="k">for</span> <span class="n">iradar</span><span class="p">,</span> <span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">gatefilter</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">radars</span><span class="p">,</span> <span class="n">gatefilters</span><span class="p">)):</span>
-
         <span class="c1"># calculate radar offset from the origin</span>
         <span class="n">x_disp</span><span class="p">,</span> <span class="n">y_disp</span> <span class="o">=</span> <span class="n">geographic_to_cartesian</span><span class="p">(</span>
-            <span class="n">radar</span><span class="o">.</span><span class="n">longitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span> <span class="n">radar</span><span class="o">.</span><span class="n">latitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span> <span class="n">projparams</span><span class="p">)</span>
+            <span class="n">radar</span><span class="o">.</span><span class="n">longitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span> <span class="n">radar</span><span class="o">.</span><span class="n">latitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span> <span class="n">projparams</span>
+        <span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">z_disp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">altitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="n">grid_origin_alt</span>
+            <span class="n">z_disp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">altitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="n">grid_origin_alt</span>
             <span class="n">offsets</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">z_disp</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">y_disp</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">x_disp</span><span class="p">)))</span>
         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-            <span class="n">z_disp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">altitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="n">grid_origin_alt</span>
+            <span class="n">z_disp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">altitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="n">grid_origin_alt</span>
             <span class="n">offsets</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">z_disp</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_disp</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_disp</span><span class="p">)))</span>
 
         <span class="c1"># calculate cartesian locations of gates</span>
         <span class="k">if</span> <span class="n">skip_transform</span><span class="p">:</span>
-            <span class="n">xg_loc</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">gate_x</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
-            <span class="n">yg_loc</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">gate_y</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+            <span class="n">xg_loc</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">gate_x</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+            <span class="n">yg_loc</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">gate_y</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">xg_loc</span><span class="p">,</span> <span class="n">yg_loc</span> <span class="o">=</span> <span class="n">geographic_to_cartesian</span><span class="p">(</span>
-                <span class="n">radar</span><span class="o">.</span><span class="n">gate_longitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span> <span class="n">radar</span><span class="o">.</span><span class="n">gate_latitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span>
-                <span class="n">projparams</span><span class="p">)</span>
-        <span class="n">zg_loc</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">gate_altitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">grid_origin_alt</span>
+                <span class="n">radar</span><span class="o">.</span><span class="n">gate_longitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span> <span class="n">radar</span><span class="o">.</span><span class="n">gate_latitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span> <span class="n">projparams</span>
+            <span class="p">)</span>
+        <span class="n">zg_loc</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">gate_altitude</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">grid_origin_alt</span>
 
         <span class="c1"># add gate locations to gate_locations array</span>
         <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">gate_offset</span><span class="p">[</span><span class="n">iradar</span><span class="p">],</span> <span class="n">gate_offset</span><span class="p">[</span><span class="n">iradar</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
@@ -739,7 +1014,7 @@
         <span class="k">del</span> <span class="n">xg_loc</span><span class="p">,</span> <span class="n">yg_loc</span>
 
         <span class="c1"># determine which gates should be included in the interpolation</span>
-        <span class="n">gflags</span> <span class="o">=</span> <span class="n">zg_loc</span> <span class="o">&lt;</span> <span class="n">toa</span>      <span class="c1"># include only those below toa</span>
+        <span class="n">gflags</span> <span class="o">=</span> <span class="n">zg_loc</span> <span class="o">&lt;</span> <span class="n">toa</span>  <span class="c1"># include only those below toa</span>
 
         <span class="k">if</span> <span class="n">gatefilter</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
             <span class="c1"># excluded gates marked by the gatefilter</span>
@@ -758,7 +1033,7 @@
 
         <span class="c1"># copy/store references to field data for lookup</span>
         <span class="k">for</span> <span class="n">ifield</span><span class="p">,</span> <span class="n">field</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fields</span><span class="p">):</span>
-            <span class="n">flat_field_data</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+            <span class="n">flat_field_data</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
             <span class="k">if</span> <span class="n">copy_field_data</span><span class="p">:</span>
                 <span class="n">field_data</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">,</span> <span class="n">ifield</span><span class="p">]</span> <span class="o">=</span> <span class="n">flat_field_data</span>
             <span class="k">else</span><span class="p">:</span>
@@ -789,11 +1064,12 @@
             <span class="n">l_start</span> <span class="o">=</span> <span class="n">filtered_gate_offset</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="n">l_end</span> <span class="o">=</span> <span class="n">filtered_gate_offset</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
             <span class="n">gates_before</span> <span class="o">=</span> <span class="n">gate_offset</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-            <span class="n">lookup</span><span class="p">[</span><span class="n">l_start</span><span class="p">:</span><span class="n">l_end</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">total_gates</span> <span class="o">*</span> <span class="n">i</span> <span class="o">-</span> <span class="n">gates_before</span><span class="p">)</span>
+            <span class="n">lookup</span><span class="p">[</span><span class="n">l_start</span><span class="p">:</span><span class="n">l_end</span><span class="p">]</span> <span class="o">+=</span> <span class="n">total_gates</span> <span class="o">*</span> <span class="n">i</span> <span class="o">-</span> <span class="n">gates_before</span>
 
     <span class="c1"># populate the nearest neighbor locator with the filtered gate locations</span>
-    <span class="n">nnlocator</span> <span class="o">=</span> <span class="n">NNLocator</span><span class="p">(</span><span class="n">gate_locations</span><span class="p">[</span><span class="n">include_gate</span><span class="p">],</span> <span class="n">algorithm</span><span class="o">=</span><span class="n">algorithm</span><span class="p">,</span>
-                          <span class="n">leafsize</span><span class="o">=</span><span class="n">leafsize</span><span class="p">)</span>
+    <span class="n">nnlocator</span> <span class="o">=</span> <span class="n">NNLocator</span><span class="p">(</span>
+        <span class="n">gate_locations</span><span class="p">[</span><span class="n">include_gate</span><span class="p">],</span> <span class="n">algorithm</span><span class="o">=</span><span class="n">algorithm</span><span class="p">,</span> <span class="n">leafsize</span><span class="o">=</span><span class="n">leafsize</span>
+    <span class="p">)</span>
 
     <span class="c1"># unpack the grid parameters</span>
     <span class="n">nz</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">nx</span> <span class="o">=</span> <span class="n">grid_shape</span>
@@ -803,33 +1079,31 @@
     <span class="n">x_start</span><span class="p">,</span> <span class="n">x_stop</span> <span class="o">=</span> <span class="n">xr</span>
 
     <span class="k">if</span> <span class="n">nz</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">z_step</span> <span class="o">=</span> <span class="mf">0.</span>
+        <span class="n">z_step</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">z_step</span> <span class="o">=</span> <span class="p">(</span><span class="n">z_stop</span> <span class="o">-</span> <span class="n">z_start</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">nz</span> <span class="o">-</span> <span class="mf">1.</span><span class="p">)</span>
+        <span class="n">z_step</span> <span class="o">=</span> <span class="p">(</span><span class="n">z_stop</span> <span class="o">-</span> <span class="n">z_start</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">nz</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ny</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">y_step</span> <span class="o">=</span> <span class="mf">0.</span>
+        <span class="n">y_step</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">y_step</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_stop</span> <span class="o">-</span> <span class="n">y_start</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">ny</span> <span class="o">-</span> <span class="mf">1.</span><span class="p">)</span>
+        <span class="n">y_step</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_stop</span> <span class="o">-</span> <span class="n">y_start</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">ny</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">nx</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">x_step</span> <span class="o">=</span> <span class="mf">0.</span>
+        <span class="n">x_step</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">x_step</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_stop</span> <span class="o">-</span> <span class="n">x_start</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">nx</span> <span class="o">-</span> <span class="mf">1.</span><span class="p">)</span>
+        <span class="n">x_step</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_stop</span> <span class="o">-</span> <span class="n">x_start</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">nx</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">roi_func</span><span class="p">,</span> <span class="s1">&#39;__call__&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">roi_func</span><span class="p">,</span> <span class="s2">&quot;__call__&quot;</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">constant_roi</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">roi_func</span> <span class="o">=</span> <span class="s1">&#39;constant&#39;</span>
+            <span class="n">roi_func</span> <span class="o">=</span> <span class="s2">&quot;constant&quot;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">constant_roi</span> <span class="o">=</span> <span class="mf">500.0</span>
-        <span class="k">if</span> <span class="n">roi_func</span> <span class="o">==</span> <span class="s1">&#39;constant&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">roi_func</span> <span class="o">==</span> <span class="s2">&quot;constant&quot;</span><span class="p">:</span>
             <span class="n">roi_func</span> <span class="o">=</span> <span class="n">_gen_roi_func_constant</span><span class="p">(</span><span class="n">constant_roi</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">roi_func</span> <span class="o">==</span> <span class="s1">&#39;dist&#39;</span><span class="p">:</span>
-            <span class="n">roi_func</span> <span class="o">=</span> <span class="n">_gen_roi_func_dist</span><span class="p">(</span>
-                <span class="n">z_factor</span><span class="p">,</span> <span class="n">xy_factor</span><span class="p">,</span> <span class="n">min_radius</span><span class="p">,</span> <span class="n">offsets</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">roi_func</span> <span class="o">==</span> <span class="s1">&#39;dist_beam&#39;</span><span class="p">:</span>
-            <span class="n">roi_func</span> <span class="o">=</span> <span class="n">_gen_roi_func_dist_beam</span><span class="p">(</span>
-                <span class="n">h_factor</span><span class="p">,</span> <span class="n">nb</span><span class="p">,</span> <span class="n">bsp</span><span class="p">,</span> <span class="n">min_radius</span><span class="p">,</span> <span class="n">offsets</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">roi_func</span> <span class="o">==</span> <span class="s2">&quot;dist&quot;</span><span class="p">:</span>
+            <span class="n">roi_func</span> <span class="o">=</span> <span class="n">_gen_roi_func_dist</span><span class="p">(</span><span class="n">z_factor</span><span class="p">,</span> <span class="n">xy_factor</span><span class="p">,</span> <span class="n">min_radius</span><span class="p">,</span> <span class="n">offsets</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">roi_func</span> <span class="o">==</span> <span class="s2">&quot;dist_beam&quot;</span><span class="p">:</span>
+            <span class="n">roi_func</span> <span class="o">=</span> <span class="n">_gen_roi_func_dist_beam</span><span class="p">(</span><span class="n">h_factor</span><span class="p">,</span> <span class="n">nb</span><span class="p">,</span> <span class="n">bsp</span><span class="p">,</span> <span class="n">min_radius</span><span class="p">,</span> <span class="n">offsets</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;unknown roi_func: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">roi_func</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;unknown roi_func: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">roi_func</span><span class="p">)</span>
 
     <span class="c1"># create array to hold interpolated grid data and roi if requested</span>
     <span class="n">grid_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">nz</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">nfields</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
@@ -840,7 +1114,6 @@
 
     <span class="c1"># interpolate field values for each point in the grid</span>
     <span class="k">for</span> <span class="n">iz</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">ix</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">ndindex</span><span class="p">(</span><span class="n">nz</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">):</span>
-
         <span class="c1"># calculate the grid point</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">x_start</span> <span class="o">+</span> <span class="n">x_step</span> <span class="o">*</span> <span class="n">ix</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">y_start</span> <span class="o">+</span> <span class="n">y_step</span> <span class="o">*</span> <span class="n">iy</span>
@@ -872,34 +1145,38 @@
             <span class="n">r_nums</span> <span class="o">=</span> <span class="n">r_nums</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">intc</span><span class="p">)</span>
             <span class="n">e_nums</span> <span class="o">=</span> <span class="n">e_nums</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">intc</span><span class="p">)</span>
             <span class="n">nn_field_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">npoints</span><span class="p">,</span> <span class="n">nfields</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
-            <span class="n">_load_nn_field_data</span><span class="p">(</span><span class="n">field_data_objs</span><span class="p">,</span> <span class="n">nfields</span><span class="p">,</span> <span class="n">npoints</span><span class="p">,</span> <span class="n">r_nums</span><span class="p">,</span>
-                                <span class="n">e_nums</span><span class="p">,</span> <span class="n">nn_field_data</span><span class="p">)</span>
+            <span class="n">_load_nn_field_data</span><span class="p">(</span>
+                <span class="n">field_data_objs</span><span class="p">,</span> <span class="n">nfields</span><span class="p">,</span> <span class="n">npoints</span><span class="p">,</span> <span class="n">r_nums</span><span class="p">,</span> <span class="n">e_nums</span><span class="p">,</span> <span class="n">nn_field_data</span>
+            <span class="p">)</span>
 
         <span class="c1"># preforms weighting of neighbors.</span>
         <span class="n">dist2</span> <span class="o">=</span> <span class="n">dist</span> <span class="o">*</span> <span class="n">dist</span>
         <span class="n">r2</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span>
 
-        <span class="k">if</span> <span class="n">weighting_function</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;NEAREST&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">weighting_function</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;NEAREST&quot;</span><span class="p">:</span>
             <span class="n">value</span> <span class="o">=</span> <span class="n">nn_field_data</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">dist2</span><span class="p">)]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">weighting_function</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;CRESSMAN&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">weighting_function</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;CRESSMAN&quot;</span><span class="p">:</span>
                 <span class="n">weights</span> <span class="o">=</span> <span class="p">(</span><span class="n">r2</span> <span class="o">-</span> <span class="n">dist2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r2</span> <span class="o">+</span> <span class="n">dist2</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">weighting_function</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;BARNES&#39;</span><span class="p">:</span>
-                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Barnes weighting function is deprecated.&quot;</span>
-                              <span class="s2">&quot; Please use Barnes 2 to be consistent with&quot;</span>
-                              <span class="s2">&quot; Pauley and Wu 1990. Default will be switched&quot;</span>
-                              <span class="s2">&quot; to Barnes2 on June 1st.&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">weighting_function</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;BARNES&quot;</span><span class="p">:</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                    <span class="s2">&quot;Barnes weighting function is deprecated.&quot;</span>
+                    <span class="s2">&quot; Please use Barnes 2 to be consistent with&quot;</span>
+                    <span class="s2">&quot; Pauley and Wu 1990. Default will be switched&quot;</span>
+                    <span class="s2">&quot; to Barnes2 on June 1st.&quot;</span><span class="p">,</span>
+                    <span class="ne">DeprecationWarning</span><span class="p">,</span>
+                <span class="p">)</span>
                 <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">dist2</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">r2</span><span class="p">))</span> <span class="o">+</span> <span class="mf">1e-5</span>
-            <span class="k">elif</span> <span class="n">weighting_function</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;BARNES2&#39;</span><span class="p">:</span>
-                <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">dist2</span> <span class="o">/</span> <span class="p">(</span><span class="n">r2</span><span class="o">/</span><span class="mi">4</span><span class="p">))</span> <span class="o">+</span> <span class="mf">1e-5</span>
+            <span class="k">elif</span> <span class="n">weighting_function</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;BARNES2&quot;</span><span class="p">:</span>
+                <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">dist2</span> <span class="o">/</span> <span class="p">(</span><span class="n">r2</span> <span class="o">/</span> <span class="mi">4</span><span class="p">))</span> <span class="o">+</span> <span class="mf">1e-5</span>
             <span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">nn_field_data</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
         <span class="n">grid_data</span><span class="p">[</span><span class="n">iz</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="c1"># create and return the grid dictionary</span>
-    <span class="n">grids</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">f</span><span class="p">,</span> <span class="n">grid_data</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fields</span><span class="p">)])</span>
+    <span class="n">grids</span> <span class="o">=</span> <span class="p">{</span><span class="n">f</span><span class="p">:</span> <span class="n">grid_data</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fields</span><span class="p">)}</span>
     <span class="k">if</span> <span class="n">map_roi</span><span class="p">:</span>
-        <span class="n">grids</span><span class="p">[</span><span class="s1">&#39;ROI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">roi</span>
+        <span class="n">grids</span><span class="p">[</span><span class="s2">&quot;ROI&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">roi</span>
     <span class="k">return</span> <span class="n">grids</span></div>
 
 
@@ -907,7 +1184,7 @@
 
 
 <div class="viewcode-block" id="example_roi_func_constant"><a class="viewcode-back" href="../../../API/generated/pyart.map.example_roi_func_constant.html#pyart.map.example_roi_func_constant">[docs]</a><span class="k">def</span> <span class="nf">example_roi_func_constant</span><span class="p">(</span><span class="n">zg</span><span class="p">,</span> <span class="n">yg</span><span class="p">,</span> <span class="n">xg</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Example RoI function which returns a constant radius.</span>
 
 <span class="sd">    Parameters</span>
@@ -921,26 +1198,26 @@
 <span class="sd">        Radius of influence in meters</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># RoI function parameters</span>
-    <span class="n">constant</span> <span class="o">=</span> <span class="mf">500.</span>     <span class="c1"># constant 500 meter RoI</span>
+    <span class="n">constant</span> <span class="o">=</span> <span class="mf">500.0</span>  <span class="c1"># constant 500 meter RoI</span>
     <span class="k">return</span> <span class="n">constant</span></div>
 
 
 <span class="k">def</span> <span class="nf">_gen_roi_func_constant</span><span class="p">(</span><span class="n">constant_roi</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return a RoI function which returns a constant radius.</span>
 
 <span class="sd">    See :py:func:`map_to_grid` for a description of the parameters.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">roi</span><span class="p">(</span><span class="n">zg</span><span class="p">,</span> <span class="n">yg</span><span class="p">,</span> <span class="n">xg</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; constant radius of influence function. &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;constant radius of influence function.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">constant_roi</span>
 
     <span class="k">return</span> <span class="n">roi</span>
 
 
 <div class="viewcode-block" id="example_roi_func_dist"><a class="viewcode-back" href="../../../API/generated/pyart.map.example_roi_func_dist.html#pyart.map.example_roi_func_dist">[docs]</a><span class="k">def</span> <span class="nf">example_roi_func_dist</span><span class="p">(</span><span class="n">zg</span><span class="p">,</span> <span class="n">yg</span><span class="p">,</span> <span class="n">xg</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Example RoI function which returns a radius which grows with distance.</span>
 
 <span class="sd">    Parameters</span>
@@ -954,23 +1231,25 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># RoI function parameters</span>
-    <span class="n">z_factor</span> <span class="o">=</span> <span class="mf">0.05</span>         <span class="c1"># increase in radius per meter increase in z dim</span>
-    <span class="n">xy_factor</span> <span class="o">=</span> <span class="mf">0.02</span>        <span class="c1"># increase in radius per meter increase in xy dim</span>
-    <span class="n">min_radius</span> <span class="o">=</span> <span class="mf">500.</span>       <span class="c1"># minimum radius</span>
-    <span class="n">offsets</span> <span class="o">=</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">)</span>  <span class="c1"># z, y, x offset of grid in meters from radar(s)</span>
+    <span class="n">z_factor</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># increase in radius per meter increase in z dim</span>
+    <span class="n">xy_factor</span> <span class="o">=</span> <span class="mf">0.02</span>  <span class="c1"># increase in radius per meter increase in xy dim</span>
+    <span class="n">min_radius</span> <span class="o">=</span> <span class="mf">500.0</span>  <span class="c1"># minimum radius</span>
+    <span class="n">offsets</span> <span class="o">=</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),)</span>  <span class="c1"># z, y, x offset of grid in meters from radar(s)</span>
 
     <span class="n">offsets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">offsets</span><span class="p">)</span>
     <span class="n">zg_off</span> <span class="o">=</span> <span class="n">offsets</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
     <span class="n">yg_off</span> <span class="o">=</span> <span class="n">offsets</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
     <span class="n">xg_off</span> <span class="o">=</span> <span class="n">offsets</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">z_factor</span> <span class="o">*</span> <span class="p">(</span><span class="n">zg</span> <span class="o">-</span> <span class="n">zg_off</span><span class="p">)</span> <span class="o">+</span>
-                   <span class="n">xy_factor</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">xg</span> <span class="o">-</span> <span class="n">xg_off</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">yg</span> <span class="o">-</span> <span class="n">yg_off</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span>
-                   <span class="n">min_radius</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span>
+        <span class="n">z_factor</span> <span class="o">*</span> <span class="p">(</span><span class="n">zg</span> <span class="o">-</span> <span class="n">zg_off</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">xy_factor</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">xg</span> <span class="o">-</span> <span class="n">xg_off</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">yg</span> <span class="o">-</span> <span class="n">yg_off</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="n">min_radius</span><span class="p">,</span>
+    <span class="p">)</span>
     <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">r</span><span class="p">)</span></div>
 
 
 <span class="k">def</span> <span class="nf">_gen_roi_func_dist</span><span class="p">(</span><span class="n">z_factor</span><span class="p">,</span> <span class="n">xy_factor</span><span class="p">,</span> <span class="n">min_radius</span><span class="p">,</span> <span class="n">offsets</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return a RoI function whose radius grows with distance.</span>
 
 <span class="sd">    See :py:func:`map_to_grid` for a description of the parameters.</span>
@@ -981,18 +1260,19 @@
     <span class="n">xg_off</span> <span class="o">=</span> <span class="n">offsets</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">roi</span><span class="p">(</span><span class="n">zg</span><span class="p">,</span> <span class="n">yg</span><span class="p">,</span> <span class="n">xg</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; dist radius of influence function. &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;dist radius of influence function.&quot;&quot;&quot;</span>
         <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span>
-            <span class="n">z_factor</span> <span class="o">*</span> <span class="p">(</span><span class="n">zg</span> <span class="o">-</span> <span class="n">zg_off</span><span class="p">)</span> <span class="o">+</span>
-            <span class="n">xy_factor</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">xg</span> <span class="o">-</span> <span class="n">xg_off</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">yg</span> <span class="o">-</span> <span class="n">yg_off</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span>
-            <span class="n">min_radius</span><span class="p">)</span>
+            <span class="n">z_factor</span> <span class="o">*</span> <span class="p">(</span><span class="n">zg</span> <span class="o">-</span> <span class="n">zg_off</span><span class="p">)</span>
+            <span class="o">+</span> <span class="n">xy_factor</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">xg</span> <span class="o">-</span> <span class="n">xg_off</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">yg</span> <span class="o">-</span> <span class="n">yg_off</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="n">min_radius</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">roi</span>
 
 
 <div class="viewcode-block" id="example_roi_func_dist_beam"><a class="viewcode-back" href="../../../API/generated/pyart.map.example_roi_func_dist_beam.html#pyart.map.example_roi_func_dist_beam">[docs]</a><span class="k">def</span> <span class="nf">example_roi_func_dist_beam</span><span class="p">(</span><span class="n">zg</span><span class="p">,</span> <span class="n">yg</span><span class="p">,</span> <span class="n">xg</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Example RoI function which returns a radius which grows with distance</span>
 <span class="sd">    and whose parameters are based on virtual beam size.</span>
 
@@ -1007,25 +1287,27 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># RoI function parameters</span>
-    <span class="n">h_factor</span> <span class="o">=</span> <span class="mf">1.0</span>      <span class="c1"># height scaling</span>
-    <span class="n">nb</span> <span class="o">=</span> <span class="mf">1.5</span>            <span class="c1"># virtual beam width</span>
-    <span class="n">bsp</span> <span class="o">=</span> <span class="mf">1.0</span>           <span class="c1"># virtual beam spacing</span>
-    <span class="n">min_radius</span> <span class="o">=</span> <span class="mf">500.</span>   <span class="c1"># minimum radius in meters</span>
-    <span class="n">offsets</span> <span class="o">=</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">)</span>  <span class="c1"># z, y, x offset of grid in meters from radar(s)</span>
+    <span class="n">h_factor</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># height scaling</span>
+    <span class="n">nb</span> <span class="o">=</span> <span class="mf">1.5</span>  <span class="c1"># virtual beam width</span>
+    <span class="n">bsp</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># virtual beam spacing</span>
+    <span class="n">min_radius</span> <span class="o">=</span> <span class="mf">500.0</span>  <span class="c1"># minimum radius in meters</span>
+    <span class="n">offsets</span> <span class="o">=</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),)</span>  <span class="c1"># z, y, x offset of grid in meters from radar(s)</span>
 
     <span class="n">offsets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">offsets</span><span class="p">)</span>
     <span class="n">zg_off</span> <span class="o">=</span> <span class="n">offsets</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
     <span class="n">yg_off</span> <span class="o">=</span> <span class="n">offsets</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
     <span class="n">xg_off</span> <span class="o">=</span> <span class="n">offsets</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span>
-        <span class="n">h_factor</span> <span class="o">*</span> <span class="p">((</span><span class="n">zg</span> <span class="o">-</span> <span class="n">zg_off</span><span class="p">)</span> <span class="o">/</span> <span class="mf">20.0</span><span class="p">)</span> <span class="o">+</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">yg</span> <span class="o">-</span> <span class="n">yg_off</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">xg</span> <span class="o">-</span> <span class="n">xg_off</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">nb</span> <span class="o">*</span> <span class="n">bsp</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">),</span> <span class="n">min_radius</span><span class="p">)</span>
+        <span class="n">h_factor</span> <span class="o">*</span> <span class="p">((</span><span class="n">zg</span> <span class="o">-</span> <span class="n">zg_off</span><span class="p">)</span> <span class="o">/</span> <span class="mf">20.0</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">yg</span> <span class="o">-</span> <span class="n">yg_off</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">xg</span> <span class="o">-</span> <span class="n">xg_off</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">nb</span> <span class="o">*</span> <span class="n">bsp</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">),</span>
+        <span class="n">min_radius</span><span class="p">,</span>
+    <span class="p">)</span>
     <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">r</span><span class="p">)</span></div>
 
 
 <span class="k">def</span> <span class="nf">_gen_roi_func_dist_beam</span><span class="p">(</span><span class="n">h_factor</span><span class="p">,</span> <span class="n">nb</span><span class="p">,</span> <span class="n">bsp</span><span class="p">,</span> <span class="n">min_radius</span><span class="p">,</span> <span class="n">offsets</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return a RoI function whose radius which grows with distance</span>
 <span class="sd">    and whose parameters are based on virtual beam size.</span>
 
@@ -1037,50 +1319,90 @@
     <span class="n">xg_off</span> <span class="o">=</span> <span class="n">offsets</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">roi</span><span class="p">(</span><span class="n">zg</span><span class="p">,</span> <span class="n">yg</span><span class="p">,</span> <span class="n">xg</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; dist_beam radius of influence function. &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;dist_beam radius of influence function.&quot;&quot;&quot;</span>
         <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span>
-            <span class="n">h_factor</span> <span class="o">*</span> <span class="p">((</span><span class="n">zg</span> <span class="o">-</span> <span class="n">zg_off</span><span class="p">)</span> <span class="o">/</span> <span class="mf">20.0</span><span class="p">)</span> <span class="o">+</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">yg</span> <span class="o">-</span> <span class="n">yg_off</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">xg</span> <span class="o">-</span> <span class="n">xg_off</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">nb</span> <span class="o">*</span> <span class="n">bsp</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">),</span> <span class="n">min_radius</span><span class="p">)</span>
+            <span class="n">h_factor</span> <span class="o">*</span> <span class="p">((</span><span class="n">zg</span> <span class="o">-</span> <span class="n">zg_off</span><span class="p">)</span> <span class="o">/</span> <span class="mf">20.0</span><span class="p">)</span>
+            <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">yg</span> <span class="o">-</span> <span class="n">yg_off</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">xg</span> <span class="o">-</span> <span class="n">xg_off</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">nb</span> <span class="o">*</span> <span class="n">bsp</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">),</span>
+            <span class="n">min_radius</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">roi</span>
 </pre></div>
-<div class="section">
-   
+<div class="section ablog__blog_comments">
+  
+  
 </div>
 
-              </div>
+                </article>
               
               
-              <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
 </div>
-              
-          </main>
-          
 
-      </div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-<footer class="footer mt-5 mt-md-0">
-  <div class="container">
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
     
-    <div class="footer-item">
-      <p class="copyright">
-    &copy; Copyright 2013-2022, Py-ART developers.<br>
-</p>
+      © Copyright 2013-2022, Py-ART developers.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    <br/>
+  </p>
+</div>
+      
     </div>
-    
-    <div class="footer-item">
-      <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
-</p>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
     </div>
-    
-  </div>
-</footer>
+  
+</div>
+
+  </footer>
   </body>
 </html>

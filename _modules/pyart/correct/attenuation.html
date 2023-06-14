@@ -1,222 +1,466 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-theme="light">
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyart.correct.attenuation &#8212; Py-ART 1.11.6.post267 documentation</title>
-    
+    <title>pyart.correct.attenuation &#8212; Py-ART 1.11.6.post312 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyart-theme.css" />
-    
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-JJEG3CV376"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-JJEG3CV376');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pyart/correct/attenuation';</script>
     <script src="../../../_static/doc_shared.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
+    <link rel="search" title="Search" href="../../../search.html" />
 
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JJEG3CV376"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-JJEG3CV376');
-                </script>
- 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
 <link
   rel="alternate"
   type="application/atom+xml"
   href="../../../blog/atom.xml"
   title="PyART Blog"
 />
- 
-<style type="text/css">
-  ul.ablog-archive {
-    list-style: none;
-    overflow: auto;
-    margin-left: 0px;
-  }
-  ul.ablog-archive li {
-    float: left;
-    margin-right: 5px;
-    font-size: 80%;
-  }
-  ul.postlist a {
-    font-style: italic;
-  }
-  ul.postlist-style-disc {
-    list-style-type: disc;
-  }
-  ul.postlist-style-none {
-    list-style-type: none;
-  }
-  ul.postlist-style-circle {
-    list-style-type: circle;
-  }
-</style>
+
+
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-  <nav class="navbar navbar-dark navbar-expand-lg bg-arm fixed-top bd-navbar shadow" id="navbar-main"><div class="container-xl">
-
-  <div id="navbar-start">
-    
-    
-<a class="navbar-brand" href="../../../index.html">
-<p class="title">Py-ART</p>
-</a>
-
-    
-  </div>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
 
   
-  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
-    <div id="navbar-center" class="mr-auto">
-      
-      <div class="navbar-center-item">
-        <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../userguide/index.html">
-  User Guide
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../API/index.html">
-  API Reference Manual
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../examples/index.html">
-  Example Gallery
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../notebook-gallery.html">
-  Notebook Gallery
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../blog.html">
-  Blog
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../changelog.html">
-  Changelog
- </a>
-</li>
-
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
     
-</ul>
-      </div>
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Py-ART 1.11.6.post312 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../userguide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../API/index.html">
+                        API Reference Manual
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        Example Gallery
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../notebook-gallery.html">
+                        Notebook Gallery
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../blog.html">
+                        Blog
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../changelog.html">
+                        Changelog
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+  </ul>
+</nav></div>
       
     </div>
-
-    <div id="navbar-end">
+    
+    
+    <div class="navbar-header-items__end">
       
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/ARM-DOE/pyart" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ARM-DOE/pyart" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
             <label class="sr-only">GitHub</label></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://twitter.com/Py_ART" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter-square"></i></span>
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/Py_ART" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter"></i></span>
             <label class="sr-only">Twitter</label></a>
         </li>
-      </ul>
-      </div>
+</ul></div>
       
     </div>
-  </div>
-</div>
-  </nav>
-
-
-    <div class="container-fluid" id="banner"></div>
-
-
-    <div class="container-xl">
-      <div class="row">
-          
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar">
-              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <div class="bd-toc-item active">
     
   </div>
-</nav>
-              </div>
-              <div class="sidebar-end-items">
-              </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../userguide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../API/index.html">
+                        API Reference Manual
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        Example Gallery
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../notebook-gallery.html">
+                        Notebook Gallery
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../blog.html">
+                        Blog
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../changelog.html">
+                        Changelog
+                      </a>
+                    </li>
+                
+                </div>
             </div>
             
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
           
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ARM-DOE/pyart" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/Py_ART" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-          
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-          </div>
-          
 
-          
-          
-            
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
               
-              <div>
-                 <h1>Source code for pyart.correct.attenuation</h1><div class="highlight"><pre>
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">pyart.correct.attenuation</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<h1>Source code for pyart.correct.attenuation</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Attenuation correction from polarimetric radars. Code adapted from method in</span>
 <span class="sd">Gu et al, JAMC 2011, 50, 39. Adapted by Scott Collis and Scott Giangrande,</span>
@@ -231,22 +475,36 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">cumtrapz</span>
 
-<span class="kn">from</span> <span class="nn">..config</span> <span class="kn">import</span> <span class="n">get_metadata</span><span class="p">,</span> <span class="n">get_field_name</span><span class="p">,</span> <span class="n">get_fillvalue</span>
-<span class="kn">from</span> <span class="nn">.phase_proc</span> <span class="kn">import</span> <span class="n">smooth_masked</span><span class="p">,</span> <span class="n">det_process_range</span><span class="p">,</span> <span class="n">smooth_and_trim</span>
-<span class="kn">from</span> <span class="nn">..filters</span> <span class="kn">import</span> <span class="n">temp_based_gate_filter</span><span class="p">,</span> <span class="n">iso0_based_gate_filter</span>
+<span class="kn">from</span> <span class="nn">..config</span> <span class="kn">import</span> <span class="n">get_field_name</span><span class="p">,</span> <span class="n">get_fillvalue</span><span class="p">,</span> <span class="n">get_metadata</span>
+<span class="kn">from</span> <span class="nn">..filters</span> <span class="kn">import</span> <span class="n">GateFilter</span><span class="p">,</span> <span class="n">iso0_based_gate_filter</span><span class="p">,</span> <span class="n">temp_based_gate_filter</span>
 <span class="kn">from</span> <span class="nn">..retrieve</span> <span class="kn">import</span> <span class="n">get_freq_band</span>
-<span class="kn">from</span> <span class="nn">..filters</span> <span class="kn">import</span> <span class="n">GateFilter</span>
+<span class="kn">from</span> <span class="nn">.phase_proc</span> <span class="kn">import</span> <span class="n">det_process_range</span><span class="p">,</span> <span class="n">smooth_and_trim</span><span class="p">,</span> <span class="n">smooth_masked</span>
 
 
-<div class="viewcode-block" id="calculate_attenuation_zphi"><a class="viewcode-back" href="../../../API/generated/pyart.correct.calculate_attenuation_zphi.html#pyart.correct.calculate_attenuation_zphi">[docs]</a><span class="k">def</span> <span class="nf">calculate_attenuation_zphi</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fzl</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">smooth_window_len</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-                               <span class="n">gatefilter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">a_coef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                               <span class="n">d</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">refl_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">phidp_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                               <span class="n">zdr_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">temp_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                               <span class="n">iso0_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">spec_at_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                               <span class="n">pia_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">corr_refl_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                               <span class="n">spec_diff_at_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pida_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                               <span class="n">corr_zdr_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">temp_ref</span><span class="o">=</span><span class="s1">&#39;temperature&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="calculate_attenuation_zphi"><a class="viewcode-back" href="../../../API/generated/pyart.correct.calculate_attenuation_zphi.html#pyart.correct.calculate_attenuation_zphi">[docs]</a><span class="k">def</span> <span class="nf">calculate_attenuation_zphi</span><span class="p">(</span>
+    <span class="n">radar</span><span class="p">,</span>
+    <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">fzl</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">smooth_window_len</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">gatefilter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">a_coef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">beta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">c</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">d</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">refl_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">phidp_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">zdr_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">temp_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">iso0_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">spec_at_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">pia_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">corr_refl_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">spec_diff_at_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">pida_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">corr_zdr_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">temp_ref</span><span class="o">=</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate the attenuation and the differential attenuation from a</span>
 <span class="sd">    polarimetric radar using Z-PHI method..</span>
 <span class="sd">    The attenuation is computed up to a user defined freezing level height</span>
@@ -364,75 +622,84 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># select the coefficients as a function of frequency band</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">a_coef</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">beta</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">c</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">d</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
-        <span class="k">if</span> <span class="s1">&#39;frequency&#39;</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">instrument_parameters</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">&quot;frequency&quot;</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">instrument_parameters</span><span class="p">:</span>
             <span class="n">a_coef</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">_get_param_attzphi</span><span class="p">(</span>
-                <span class="n">radar</span><span class="o">.</span><span class="n">instrument_parameters</span><span class="p">[</span><span class="s1">&#39;frequency&#39;</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">radar</span><span class="o">.</span><span class="n">instrument_parameters</span><span class="p">[</span><span class="s2">&quot;frequency&quot;</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">a_coef</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">_param_attzphi_table</span><span class="p">()[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span>
-            <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Radar frequency unknown. Default coefficients &quot;</span>
-                 <span class="o">+</span> <span class="s2">&quot;for C band will be applied.&quot;</span><span class="p">)</span>
+            <span class="n">a_coef</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">_param_attzphi_table</span><span class="p">()[</span><span class="s2">&quot;C&quot;</span><span class="p">]</span>
+            <span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Radar frequency unknown. Default coefficients &quot;</span>
+                <span class="s2">&quot;for C band will be applied.&quot;</span>
+            <span class="p">)</span>
 
     <span class="c1"># parse the field parameters</span>
     <span class="k">if</span> <span class="n">refl_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">refl_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;reflectivity&#39;</span><span class="p">)</span>
+        <span class="n">refl_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;reflectivity&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">zdr_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">zdr_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;differential_reflectivity&#39;</span><span class="p">)</span>
+        <span class="n">zdr_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;differential_reflectivity&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">phidp_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="c1"># use corrrected_differential_phase or unfolded_differential_phase</span>
         <span class="c1"># fields if they are available, if not use differential_phase field</span>
-        <span class="n">phidp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;corrected_differential_phase&#39;</span><span class="p">)</span>
+        <span class="n">phidp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;corrected_differential_phase&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">phidp_field</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">:</span>
-            <span class="n">phidp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;unfolded_differential_phase&#39;</span><span class="p">)</span>
+            <span class="n">phidp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;unfolded_differential_phase&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">phidp_field</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">:</span>
-            <span class="n">phidp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;differential_phase&#39;</span><span class="p">)</span>
+            <span class="n">phidp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;differential_phase&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">spec_at_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">spec_at_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;specific_attenuation&#39;</span><span class="p">)</span>
+        <span class="n">spec_at_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;specific_attenuation&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">pia_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">pia_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;path_integrated_attenuation&#39;</span><span class="p">)</span>
+        <span class="n">pia_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;path_integrated_attenuation&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">corr_refl_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">corr_refl_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;corrected_reflectivity&#39;</span><span class="p">)</span>
+        <span class="n">corr_refl_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;corrected_reflectivity&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">spec_diff_at_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">spec_diff_at_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span>
-            <span class="s1">&#39;specific_differential_attenuation&#39;</span><span class="p">)</span>
+        <span class="n">spec_diff_at_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;specific_differential_attenuation&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">pida_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">pida_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;path_integrated_differential_attenuation&#39;</span><span class="p">)</span>
+        <span class="n">pida_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;path_integrated_differential_attenuation&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">corr_zdr_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">corr_zdr_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span>
-            <span class="s1">&#39;corrected_differential_reflectivity&#39;</span><span class="p">)</span>
+        <span class="n">corr_zdr_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;corrected_differential_reflectivity&quot;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">temp_ref</span> <span class="o">==</span> <span class="s1">&#39;temperature&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">temp_ref</span> <span class="o">==</span> <span class="s2">&quot;temperature&quot;</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">temp_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">temp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;temperature&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">temp_ref</span> <span class="o">==</span> <span class="s1">&#39;height_over_iso0&#39;</span><span class="p">:</span>
+            <span class="n">temp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">temp_ref</span> <span class="o">==</span> <span class="s2">&quot;height_over_iso0&quot;</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">iso0_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">iso0_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;height_over_iso0&#39;</span><span class="p">)</span>
+            <span class="n">iso0_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;height_over_iso0&quot;</span><span class="p">)</span>
 
     <span class="c1"># extract fields and parameters from radar if they exist</span>
     <span class="c1"># reflectivity and differential phase must exist</span>
     <span class="c1"># create arrays to hold the output data</span>
     <span class="n">radar</span><span class="o">.</span><span class="n">check_field_exists</span><span class="p">(</span><span class="n">refl_field</span><span class="p">)</span>
-    <span class="n">refl</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">refl_field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+    <span class="n">refl</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">refl_field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
 
     <span class="n">radar</span><span class="o">.</span><span class="n">check_field_exists</span><span class="p">(</span><span class="n">phidp_field</span><span class="p">)</span>
-    <span class="n">phidp</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">phidp_field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
+    <span class="n">phidp</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">phidp_field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
 
-    <span class="n">ah</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">refl</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
-    <span class="n">pia</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">refl</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+    <span class="n">ah</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">refl</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+    <span class="n">pia</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">refl</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
 
     <span class="k">try</span><span class="p">:</span>
         <span class="n">radar</span><span class="o">.</span><span class="n">check_field_exists</span><span class="p">(</span><span class="n">zdr_field</span><span class="p">)</span>
-        <span class="n">zdr</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">zdr_field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+        <span class="n">zdr</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">zdr_field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
 
-        <span class="n">adiff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">zdr</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
-        <span class="n">pida</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">zdr</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+        <span class="n">adiff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">zdr</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+        <span class="n">pida</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">zdr</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
         <span class="n">zdr</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="c1"># determine the valid data (i.e. data below freezing level)</span>
     <span class="n">mask_fzl</span><span class="p">,</span> <span class="n">end_gate_arr</span> <span class="o">=</span> <span class="n">get_mask_fzl</span><span class="p">(</span>
-        <span class="n">radar</span><span class="p">,</span> <span class="n">fzl</span><span class="o">=</span><span class="n">fzl</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="n">doc</span><span class="p">,</span> <span class="n">min_temp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_h_iso0</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">beamwidth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">temp_field</span><span class="o">=</span><span class="n">temp_field</span><span class="p">,</span> <span class="n">iso0_field</span><span class="o">=</span><span class="n">iso0_field</span><span class="p">,</span>
-        <span class="n">temp_ref</span><span class="o">=</span><span class="n">temp_ref</span><span class="p">)</span>
+        <span class="n">radar</span><span class="p">,</span>
+        <span class="n">fzl</span><span class="o">=</span><span class="n">fzl</span><span class="p">,</span>
+        <span class="n">doc</span><span class="o">=</span><span class="n">doc</span><span class="p">,</span>
+        <span class="n">min_temp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">max_h_iso0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">thickness</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">beamwidth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">temp_field</span><span class="o">=</span><span class="n">temp_field</span><span class="p">,</span>
+        <span class="n">iso0_field</span><span class="o">=</span><span class="n">iso0_field</span><span class="p">,</span>
+        <span class="n">temp_ref</span><span class="o">=</span><span class="n">temp_ref</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="k">if</span> <span class="n">gatefilter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">getmaskarray</span><span class="p">(</span><span class="n">refl</span><span class="p">)</span>
@@ -446,11 +713,12 @@
 
     <span class="c1"># calculate initial reflectivity correction and gate spacing (in km)</span>
     <span class="n">init_refl_correct</span> <span class="o">=</span> <span class="n">refl</span> <span class="o">+</span> <span class="n">corr_phidp</span> <span class="o">*</span> <span class="n">a_coef</span>
-    <span class="n">dr</span> <span class="o">=</span> <span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mf">1000.0</span>
+    <span class="n">dr</span> <span class="o">=</span> <span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mf">1000.0</span>
 
     <span class="k">if</span> <span class="n">smooth_window_len</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">sm_refl</span> <span class="o">=</span> <span class="n">smooth_masked</span><span class="p">(</span><span class="n">init_refl_correct</span><span class="p">,</span> <span class="n">wind_len</span><span class="o">=</span><span class="n">smooth_window_len</span><span class="p">,</span>
-                                <span class="n">min_valid</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">wind_type</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+        <span class="n">sm_refl</span> <span class="o">=</span> <span class="n">smooth_masked</span><span class="p">(</span>
+            <span class="n">init_refl_correct</span><span class="p">,</span> <span class="n">wind_len</span><span class="o">=</span><span class="n">smooth_window_len</span><span class="p">,</span> <span class="n">min_valid</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">wind_type</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span>
+        <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">sm_refl</span> <span class="o">=</span> <span class="n">init_refl_correct</span>
     <span class="n">refl_linear</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">sm_refl</span><span class="p">)</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -464,24 +732,24 @@
         <span class="k">if</span> <span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">smooth_window_len</span><span class="p">:</span>
             <span class="c1"># extract the ray&#39;s phase shift,</span>
             <span class="c1"># init. refl. correction and mask</span>
-            <span class="n">ray_phase_shift</span> <span class="o">=</span> <span class="n">corr_phidp</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]]</span>
-            <span class="n">ray_mask</span> <span class="o">=</span> <span class="n">mask</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]]</span>
-            <span class="n">ray_refl_linear</span> <span class="o">=</span> <span class="n">refl_linear</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]]</span>
+            <span class="n">ray_phase_shift</span> <span class="o">=</span> <span class="n">corr_phidp</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]]</span>
+            <span class="n">ray_mask</span> <span class="o">=</span> <span class="n">mask</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]]</span>
+            <span class="n">ray_refl_linear</span> <span class="o">=</span> <span class="n">refl_linear</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]]</span>
 
             <span class="c1"># perform calculation if there is valid data</span>
-            <span class="n">last_six_good</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
-                <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">ray_mask</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">6</span><span class="p">:]</span>
+            <span class="n">last_six_good</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">ray_mask</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">6</span><span class="p">:]</span>
             <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">last_six_good</span><span class="p">))</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
                 <span class="n">phidp_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">ray_phase_shift</span><span class="p">[</span><span class="n">last_six_good</span><span class="p">])</span>
-                <span class="n">self_cons_number</span> <span class="o">=</span> <span class="p">(</span>
-                    <span class="mf">10.0</span> <span class="o">**</span> <span class="p">(</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">a_coef</span> <span class="o">*</span> <span class="n">phidp_max</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span>
+                <span class="n">self_cons_number</span> <span class="o">=</span> <span class="mf">10.0</span> <span class="o">**</span> <span class="p">(</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">a_coef</span> <span class="o">*</span> <span class="n">phidp_max</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span>
                 <span class="n">I_indef</span> <span class="o">=</span> <span class="n">cumtrapz</span><span class="p">(</span><span class="mf">0.46</span> <span class="o">*</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">dr</span> <span class="o">*</span> <span class="n">ray_refl_linear</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
                 <span class="n">I_indef</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">I_indef</span><span class="p">,</span> <span class="n">I_indef</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
                 <span class="c1"># set the specific attenutation and attenuation</span>
-                <span class="n">ah</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span>
-                    <span class="n">ray_refl_linear</span> <span class="o">*</span> <span class="n">self_cons_number</span> <span class="o">/</span>
-                    <span class="p">(</span><span class="n">I_indef</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">self_cons_number</span> <span class="o">*</span> <span class="n">I_indef</span><span class="p">))</span>
+                <span class="n">ah</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">ray_refl_linear</span>
+                    <span class="o">*</span> <span class="n">self_cons_number</span>
+                    <span class="o">/</span> <span class="p">(</span><span class="n">I_indef</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">self_cons_number</span> <span class="o">*</span> <span class="n">I_indef</span><span class="p">)</span>
+                <span class="p">)</span>
 
                 <span class="n">pia</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">cumtrapz</span><span class="p">(</span><span class="n">ah</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="p">:])</span> <span class="o">*</span> <span class="n">dr</span> <span class="o">*</span> <span class="mf">2.0</span>
                 <span class="n">pia</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">pia</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
@@ -489,8 +757,9 @@
                 <span class="c1"># if ZDR exists, set the specific differential attenuation</span>
                 <span class="c1"># and differential attenuation</span>
                 <span class="k">if</span> <span class="n">zdr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="n">adiff</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span>
-                        <span class="n">c</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">ah</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]],</span> <span class="n">d</span><span class="p">))</span>
+                    <span class="n">adiff</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]]</span> <span class="o">=</span> <span class="n">c</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">power</span><span class="p">(</span>
+                        <span class="n">ah</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]],</span> <span class="n">d</span>
+                    <span class="p">)</span>
 
                     <span class="n">pida</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">cumtrapz</span><span class="p">(</span><span class="n">adiff</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="p">:])</span> <span class="o">*</span> <span class="n">dr</span> <span class="o">*</span> <span class="mf">2.0</span>
                     <span class="n">pida</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">pida</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
@@ -499,36 +768,36 @@
     <span class="c1"># for specific attenuation and corrected reflectivity</span>
     <span class="n">spec_at</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">spec_at_field</span><span class="p">)</span>
     <span class="n">temp_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">ah</span><span class="p">)</span>
-    <span class="n">spec_at</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp_array</span>
-    <span class="n">spec_at</span><span class="p">[</span><span class="s1">&#39;_FillValue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp_array</span><span class="o">.</span><span class="n">fill_value</span>
+    <span class="n">spec_at</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp_array</span>
+    <span class="n">spec_at</span><span class="p">[</span><span class="s2">&quot;_FillValue&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp_array</span><span class="o">.</span><span class="n">fill_value</span>
 
     <span class="n">pia_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">pia</span><span class="p">)</span>
     <span class="n">pia_dict</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">pia_field</span><span class="p">)</span>
-    <span class="n">pia_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pia_array</span>
-    <span class="n">pia_dict</span><span class="p">[</span><span class="s1">&#39;_FillValue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pia_array</span><span class="o">.</span><span class="n">fill_value</span>
+    <span class="n">pia_dict</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pia_array</span>
+    <span class="n">pia_dict</span><span class="p">[</span><span class="s2">&quot;_FillValue&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pia_array</span><span class="o">.</span><span class="n">fill_value</span>
 
     <span class="n">cor_z</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">corr_refl_field</span><span class="p">)</span>
     <span class="n">cor_z_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">pia</span> <span class="o">+</span> <span class="n">refl</span><span class="p">)</span>
-    <span class="n">cor_z</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cor_z_array</span>
-    <span class="n">cor_z</span><span class="p">[</span><span class="s1">&#39;_FillValue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cor_z_array</span><span class="o">.</span><span class="n">fill_value</span>
+    <span class="n">cor_z</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cor_z_array</span>
+    <span class="n">cor_z</span><span class="p">[</span><span class="s2">&quot;_FillValue&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cor_z_array</span><span class="o">.</span><span class="n">fill_value</span>
 
     <span class="c1"># prepare output field dictionaries</span>
     <span class="c1"># for specific diff attenuation and corrected ZDR</span>
     <span class="k">if</span> <span class="n">zdr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">sda</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">adiff</span><span class="p">)</span>
         <span class="n">spec_diff_at</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">spec_diff_at_field</span><span class="p">)</span>
-        <span class="n">spec_diff_at</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sda</span>
-        <span class="n">spec_diff_at</span><span class="p">[</span><span class="s1">&#39;_FillValue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sda</span><span class="o">.</span><span class="n">fill_value</span>
+        <span class="n">spec_diff_at</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sda</span>
+        <span class="n">spec_diff_at</span><span class="p">[</span><span class="s2">&quot;_FillValue&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sda</span><span class="o">.</span><span class="n">fill_value</span>
 
         <span class="n">pida_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">pida</span><span class="p">)</span>
         <span class="n">pida_dict</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">pida_field</span><span class="p">)</span>
-        <span class="n">pida_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pida_array</span>
-        <span class="n">pida_dict</span><span class="p">[</span><span class="s1">&#39;_FillValue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pida_array</span><span class="o">.</span><span class="n">fill_value</span>
+        <span class="n">pida_dict</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pida_array</span>
+        <span class="n">pida_dict</span><span class="p">[</span><span class="s2">&quot;_FillValue&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pida_array</span><span class="o">.</span><span class="n">fill_value</span>
 
         <span class="n">cor_zdr</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">corr_zdr_field</span><span class="p">)</span>
         <span class="n">czdr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">pida</span> <span class="o">+</span> <span class="n">zdr</span><span class="p">)</span>
-        <span class="n">cor_zdr</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">czdr</span>
-        <span class="n">cor_zdr</span><span class="p">[</span><span class="s1">&#39;_FillValue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">czdr</span><span class="o">.</span><span class="n">fill_value</span>
+        <span class="n">cor_zdr</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">czdr</span>
+        <span class="n">cor_zdr</span><span class="p">[</span><span class="s2">&quot;_FillValue&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">czdr</span><span class="o">.</span><span class="n">fill_value</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">spec_diff_at</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="n">cor_zdr</span> <span class="o">=</span> <span class="kc">None</span>
@@ -538,12 +807,26 @@
 
 
 <div class="viewcode-block" id="calculate_attenuation_philinear"><a class="viewcode-back" href="../../../API/generated/pyart.correct.calculate_attenuation_philinear.html#pyart.correct.calculate_attenuation_philinear">[docs]</a><span class="k">def</span> <span class="nf">calculate_attenuation_philinear</span><span class="p">(</span>
-        <span class="n">radar</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fzl</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pia_coef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gatefilter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">pida_coef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">refl_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">phidp_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">zdr_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">temp_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">iso0_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">spec_at_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">pia_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">corr_refl_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">spec_diff_at_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">pida_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">corr_zdr_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">temp_ref</span><span class="o">=</span><span class="s1">&#39;temperature&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="n">radar</span><span class="p">,</span>
+    <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">fzl</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">pia_coef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">gatefilter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">pida_coef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">refl_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">phidp_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">zdr_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">temp_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">iso0_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">spec_at_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">pia_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">corr_refl_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">spec_diff_at_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">pida_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">corr_zdr_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">temp_ref</span><span class="o">=</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate the attenuation and the differential attenuation from a</span>
 <span class="sd">    polarimetric radar using linear dependece with PhiDP.</span>
 <span class="sd">    The attenuation is computed up to a user defined freezing level height,</span>
@@ -642,70 +925,78 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># select the coefficients as a function of frequency band</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">pia_coef</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">pida_coef</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
-        <span class="k">if</span> <span class="s1">&#39;frequency&#39;</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">instrument_parameters</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">&quot;frequency&quot;</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">instrument_parameters</span><span class="p">:</span>
             <span class="n">pia_coef</span><span class="p">,</span> <span class="n">pida_coef</span> <span class="o">=</span> <span class="n">_get_param_attphilinear</span><span class="p">(</span>
-                <span class="n">radar</span><span class="o">.</span><span class="n">instrument_parameters</span><span class="p">[</span><span class="s1">&#39;frequency&#39;</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">radar</span><span class="o">.</span><span class="n">instrument_parameters</span><span class="p">[</span><span class="s2">&quot;frequency&quot;</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">pia_coef</span><span class="p">,</span> <span class="n">pida_coef</span> <span class="o">=</span> <span class="n">_param_attphilinear_table</span><span class="p">()[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span>
-            <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Radar frequency unknown. Default &quot;</span>
-                 <span class="o">+</span> <span class="s2">&quot;coefficients for C band will be applied.&quot;</span><span class="p">)</span>
+            <span class="n">pia_coef</span><span class="p">,</span> <span class="n">pida_coef</span> <span class="o">=</span> <span class="n">_param_attphilinear_table</span><span class="p">()[</span><span class="s2">&quot;C&quot;</span><span class="p">]</span>
+            <span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Radar frequency unknown. Default &quot;</span>
+                <span class="o">+</span> <span class="s2">&quot;coefficients for C band will be applied.&quot;</span>
+            <span class="p">)</span>
 
     <span class="c1"># parse the field parameters</span>
     <span class="k">if</span> <span class="n">refl_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">refl_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;reflectivity&#39;</span><span class="p">)</span>
+        <span class="n">refl_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;reflectivity&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">zdr_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">zdr_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;differential_reflectivity&#39;</span><span class="p">)</span>
+        <span class="n">zdr_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;differential_reflectivity&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">phidp_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="c1"># use corrrected_differential_phase or unfolded_differential_phase</span>
         <span class="c1"># fields if they are available, if not use differential_phase field</span>
-        <span class="n">phidp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;corrected_differential_phase&#39;</span><span class="p">)</span>
+        <span class="n">phidp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;corrected_differential_phase&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">phidp_field</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">:</span>
-            <span class="n">phidp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;unfolded_differential_phase&#39;</span><span class="p">)</span>
+            <span class="n">phidp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;unfolded_differential_phase&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">phidp_field</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">:</span>
-            <span class="n">phidp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;differential_phase&#39;</span><span class="p">)</span>
+            <span class="n">phidp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;differential_phase&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">spec_at_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">spec_at_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;specific_attenuation&#39;</span><span class="p">)</span>
+        <span class="n">spec_at_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;specific_attenuation&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">pia_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">pia_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;path_integrated_attenuation&#39;</span><span class="p">)</span>
+        <span class="n">pia_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;path_integrated_attenuation&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">corr_refl_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">corr_refl_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;corrected_reflectivity&#39;</span><span class="p">)</span>
+        <span class="n">corr_refl_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;corrected_reflectivity&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">spec_diff_at_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">spec_diff_at_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span>
-            <span class="s1">&#39;specific_differential_attenuation&#39;</span><span class="p">)</span>
+        <span class="n">spec_diff_at_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;specific_differential_attenuation&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">pida_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">pida_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span>
-            <span class="s1">&#39;path_integrated_differential_attenuation&#39;</span><span class="p">)</span>
+        <span class="n">pida_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;path_integrated_differential_attenuation&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">corr_zdr_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">corr_zdr_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span>
-            <span class="s1">&#39;corrected_differential_reflectivity&#39;</span><span class="p">)</span>
+        <span class="n">corr_zdr_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;corrected_differential_reflectivity&quot;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">temp_ref</span> <span class="o">==</span> <span class="s1">&#39;temperature&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">temp_ref</span> <span class="o">==</span> <span class="s2">&quot;temperature&quot;</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">temp_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">temp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;temperature&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">temp_ref</span> <span class="o">==</span> <span class="s1">&#39;height_over_iso0&#39;</span><span class="p">:</span>
+            <span class="n">temp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">temp_ref</span> <span class="o">==</span> <span class="s2">&quot;height_over_iso0&quot;</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">iso0_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">iso0_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;height_over_iso0&#39;</span><span class="p">)</span>
+            <span class="n">iso0_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;height_over_iso0&quot;</span><span class="p">)</span>
 
     <span class="c1"># extract fields and parameters from radar if they exist</span>
     <span class="c1"># reflectivity and differential phase must exist</span>
     <span class="c1"># create arrays to hold the output data</span>
     <span class="n">radar</span><span class="o">.</span><span class="n">check_field_exists</span><span class="p">(</span><span class="n">refl_field</span><span class="p">)</span>
-    <span class="n">refl</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">refl_field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+    <span class="n">refl</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">refl_field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
 
     <span class="n">radar</span><span class="o">.</span><span class="n">check_field_exists</span><span class="p">(</span><span class="n">phidp_field</span><span class="p">)</span>
-    <span class="n">phidp</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">phidp_field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
+    <span class="n">phidp</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">phidp_field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
 
     <span class="k">try</span><span class="p">:</span>
         <span class="n">radar</span><span class="o">.</span><span class="n">check_field_exists</span><span class="p">(</span><span class="n">zdr_field</span><span class="p">)</span>
-        <span class="n">zdr</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">zdr_field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+        <span class="n">zdr</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">zdr_field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
         <span class="n">zdr</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="c1"># determine the valid data (i.e. data below freezing level)</span>
     <span class="n">mask_fzl</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">get_mask_fzl</span><span class="p">(</span>
-        <span class="n">radar</span><span class="p">,</span> <span class="n">fzl</span><span class="o">=</span><span class="n">fzl</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="n">doc</span><span class="p">,</span> <span class="n">min_temp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_h_iso0</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">beamwidth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">temp_field</span><span class="o">=</span><span class="n">temp_field</span><span class="p">,</span> <span class="n">iso0_field</span><span class="o">=</span><span class="n">iso0_field</span><span class="p">,</span>
-        <span class="n">temp_ref</span><span class="o">=</span><span class="n">temp_ref</span><span class="p">)</span>
+        <span class="n">radar</span><span class="p">,</span>
+        <span class="n">fzl</span><span class="o">=</span><span class="n">fzl</span><span class="p">,</span>
+        <span class="n">doc</span><span class="o">=</span><span class="n">doc</span><span class="p">,</span>
+        <span class="n">min_temp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">max_h_iso0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">thickness</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">beamwidth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">temp_field</span><span class="o">=</span><span class="n">temp_field</span><span class="p">,</span>
+        <span class="n">iso0_field</span><span class="o">=</span><span class="n">iso0_field</span><span class="p">,</span>
+        <span class="n">temp_ref</span><span class="o">=</span><span class="n">temp_ref</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="k">if</span> <span class="n">gatefilter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">getmaskarray</span><span class="p">(</span><span class="n">refl</span><span class="p">)</span>
@@ -716,7 +1007,7 @@
     <span class="c1"># prepare phidp: filter out values above freezing level and negative</span>
     <span class="c1"># makes sure phidp is monotonously increasing</span>
     <span class="n">corr_phidp</span> <span class="o">=</span> <span class="n">_prepare_phidp</span><span class="p">(</span><span class="n">phidp</span><span class="p">,</span> <span class="n">mask_fzl</span><span class="p">)</span>
-    <span class="n">dr</span> <span class="o">=</span> <span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mf">1000.0</span>
+    <span class="n">dr</span> <span class="o">=</span> <span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mf">1000.0</span>
 
     <span class="n">pia</span> <span class="o">=</span> <span class="n">pia_coef</span> <span class="o">*</span> <span class="n">corr_phidp</span>
     <span class="n">ah</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">pia</span><span class="p">,</span> <span class="n">dr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -724,13 +1015,13 @@
     <span class="c1"># prepare output field dictionaries</span>
     <span class="c1"># for specific attenuation and corrected reflectivity</span>
     <span class="n">spec_at</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">spec_at_field</span><span class="p">)</span>
-    <span class="n">spec_at</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ah</span><span class="p">))</span>
+    <span class="n">spec_at</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ah</span><span class="p">))</span>
 
     <span class="n">pia_dict</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">pia_field</span><span class="p">)</span>
-    <span class="n">pia_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pia</span><span class="p">))</span>
+    <span class="n">pia_dict</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pia</span><span class="p">))</span>
 
     <span class="n">cor_z</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">corr_refl_field</span><span class="p">)</span>
-    <span class="n">cor_z</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pia</span> <span class="o">+</span> <span class="n">refl</span><span class="p">))</span>
+    <span class="n">cor_z</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pia</span> <span class="o">+</span> <span class="n">refl</span><span class="p">))</span>
 
     <span class="c1"># prepare output field dictionaries</span>
     <span class="c1"># for specific diff attenuation and corrected ZDR</span>
@@ -739,21 +1030,30 @@
         <span class="n">adiff</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">pida</span><span class="p">,</span> <span class="n">dr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
         <span class="n">spec_diff_at</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">spec_diff_at_field</span><span class="p">)</span>
-        <span class="n">spec_diff_at</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">adiff</span><span class="p">)</span>
+        <span class="n">spec_diff_at</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">adiff</span><span class="p">)</span>
 
         <span class="n">pida_dict</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">pida_field</span><span class="p">)</span>
-        <span class="n">pida_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">pida</span><span class="p">)</span>
+        <span class="n">pida_dict</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">pida</span><span class="p">)</span>
 
         <span class="n">cor_zdr</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">corr_zdr_field</span><span class="p">)</span>
-        <span class="n">cor_zdr</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">pida</span> <span class="o">+</span> <span class="n">zdr</span><span class="p">)</span>
+        <span class="n">cor_zdr</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">pida</span> <span class="o">+</span> <span class="n">zdr</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">spec_at</span><span class="p">,</span> <span class="n">pia_dict</span><span class="p">,</span> <span class="n">cor_z</span><span class="p">,</span> <span class="n">spec_diff_at</span><span class="p">,</span> <span class="n">pida_dict</span><span class="p">,</span> <span class="n">cor_zdr</span></div>
 
 
-<span class="k">def</span> <span class="nf">get_mask_fzl</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">fzl</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_temp</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">max_h_iso0</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span>
-                 <span class="n">thickness</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">beamwidth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">temp_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">iso0_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">temp_ref</span><span class="o">=</span><span class="s1">&#39;temperature&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">get_mask_fzl</span><span class="p">(</span>
+    <span class="n">radar</span><span class="p">,</span>
+    <span class="n">fzl</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">min_temp</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">max_h_iso0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">thickness</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">beamwidth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">temp_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">iso0_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">temp_ref</span><span class="o">=</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Constructs a mask to mask data placed thickness m below data at min_temp</span>
 <span class="sd">    and beyond.</span>
 
@@ -797,83 +1097,100 @@
 <span class="sd">        The index of the last valid gate in the ray.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">temp_ref</span> <span class="o">==</span> <span class="s1">&#39;temperature&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">temp_ref</span> <span class="o">==</span> <span class="s2">&quot;temperature&quot;</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">temp_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">temp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;temperature&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">temp_ref</span> <span class="o">==</span> <span class="s1">&#39;height_over_iso0&#39;</span><span class="p">:</span>
+            <span class="n">temp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">temp_ref</span> <span class="o">==</span> <span class="s2">&quot;height_over_iso0&quot;</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">iso0_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">iso0_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;height_over_iso0&#39;</span><span class="p">)</span>
+            <span class="n">iso0_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;height_over_iso0&quot;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">temp_ref</span> <span class="o">==</span> <span class="s1">&#39;fixed_fzl&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">temp_ref</span> <span class="o">==</span> <span class="s2">&quot;fixed_fzl&quot;</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">fzl</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">fzl</span> <span class="o">=</span> <span class="mf">4000.</span>
+            <span class="n">fzl</span> <span class="o">=</span> <span class="mf">4000.0</span>
             <span class="n">doc</span> <span class="o">=</span> <span class="mi">15</span>
-            <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Freezing level height not specified. &#39;</span> <span class="o">+</span>
-                 <span class="s1">&#39;Using default &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">fzl</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; [m]&#39;</span><span class="p">)</span>
-        <span class="n">end_gate_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">nrays</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
+            <span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Freezing level height not specified. &quot;</span>
+                <span class="o">+</span> <span class="s2">&quot;Using default &quot;</span>
+                <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fzl</span><span class="p">)</span>
+                <span class="o">+</span> <span class="s2">&quot; [m]&quot;</span>
+            <span class="p">)</span>
+        <span class="n">end_gate_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">nrays</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int32&quot;</span><span class="p">)</span>
         <span class="n">mask_fzl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">radar</span><span class="o">.</span><span class="n">nrays</span><span class="p">,</span> <span class="n">radar</span><span class="o">.</span><span class="n">ngates</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">sweep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">nsweeps</span><span class="p">):</span>
-            <span class="n">end_gate</span><span class="p">,</span> <span class="n">start_ray</span><span class="p">,</span> <span class="n">end_ray</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="n">det_process_range</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">sweep</span><span class="p">,</span> <span class="n">fzl</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="n">doc</span><span class="p">))</span>
+            <span class="n">end_gate</span><span class="p">,</span> <span class="n">start_ray</span><span class="p">,</span> <span class="n">end_ray</span> <span class="o">=</span> <span class="n">det_process_range</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">sweep</span><span class="p">,</span> <span class="n">fzl</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="n">doc</span><span class="p">)</span>
             <span class="n">end_gate_arr</span><span class="p">[</span><span class="n">start_ray</span><span class="p">:</span><span class="n">end_ray</span><span class="p">]</span> <span class="o">=</span> <span class="n">end_gate</span>
-            <span class="n">mask_fzl</span><span class="p">[</span><span class="n">start_ray</span><span class="p">:</span><span class="n">end_ray</span><span class="p">,</span> <span class="n">end_gate</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">mask_fzl</span><span class="p">[</span><span class="n">start_ray</span><span class="p">:</span><span class="n">end_ray</span><span class="p">,</span> <span class="n">end_gate</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:]</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">elif</span> <span class="n">temp_ref</span> <span class="o">==</span> <span class="s1">&#39;temperature&#39;</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">temp_ref</span> <span class="o">==</span> <span class="s2">&quot;temperature&quot;</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">temp_field</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">:</span>
             <span class="n">gatefilter</span> <span class="o">=</span> <span class="n">temp_based_gate_filter</span><span class="p">(</span>
-                <span class="n">radar</span><span class="p">,</span> <span class="n">temp_field</span><span class="o">=</span><span class="n">temp_field</span><span class="p">,</span> <span class="n">min_temp</span><span class="o">=</span><span class="n">min_temp</span><span class="p">,</span>
-                <span class="n">thickness</span><span class="o">=</span><span class="n">thickness</span><span class="p">,</span> <span class="n">beamwidth</span><span class="o">=</span><span class="n">beamwidth</span><span class="p">)</span>
-            <span class="n">end_gate_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">nrays</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
+                <span class="n">radar</span><span class="p">,</span>
+                <span class="n">temp_field</span><span class="o">=</span><span class="n">temp_field</span><span class="p">,</span>
+                <span class="n">min_temp</span><span class="o">=</span><span class="n">min_temp</span><span class="p">,</span>
+                <span class="n">thickness</span><span class="o">=</span><span class="n">thickness</span><span class="p">,</span>
+                <span class="n">beamwidth</span><span class="o">=</span><span class="n">beamwidth</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">end_gate_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">nrays</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int32&quot;</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">ray</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">nrays</span><span class="p">):</span>
                 <span class="n">ind_rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">gatefilter</span><span class="o">.</span><span class="n">gate_excluded</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="p">:]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ind_rng</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="c1"># there are filtered gates: The last valid gate is one</span>
                     <span class="c1"># before the first filter gate</span>
                     <span class="k">if</span> <span class="n">ind_rng</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                        <span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]</span> <span class="o">=</span> <span class="n">ind_rng</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
+                        <span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]</span> <span class="o">=</span> <span class="n">ind_rng</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
                     <span class="k">else</span><span class="p">:</span>
                         <span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="c1"># there are no filter gates: all gates are valid</span>
-                    <span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">ngates</span><span class="o">-</span><span class="mi">1</span>
+                    <span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">ngates</span> <span class="o">-</span> <span class="mi">1</span>
             <span class="n">mask_fzl</span> <span class="o">=</span> <span class="n">gatefilter</span><span class="o">.</span><span class="n">gate_excluded</span> <span class="o">==</span> <span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">fzl</span> <span class="o">=</span> <span class="mf">4000.</span>
+            <span class="n">fzl</span> <span class="o">=</span> <span class="mf">4000.0</span>
             <span class="n">doc</span> <span class="o">=</span> <span class="mi">15</span>
-            <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Temperature field not available.&#39;</span> <span class="o">+</span>
-                 <span class="s1">&#39;Using default freezing level height &#39;</span> <span class="o">+</span>
-                 <span class="nb">str</span><span class="p">(</span><span class="n">fzl</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; [m].&#39;</span><span class="p">)</span>
+            <span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Temperature field not available.&quot;</span>
+                <span class="o">+</span> <span class="s2">&quot;Using default freezing level height &quot;</span>
+                <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fzl</span><span class="p">)</span>
+                <span class="o">+</span> <span class="s2">&quot; [m].&quot;</span>
+            <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">iso0_field</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">:</span>
             <span class="n">gatefilter</span> <span class="o">=</span> <span class="n">iso0_based_gate_filter</span><span class="p">(</span>
-                <span class="n">radar</span><span class="p">,</span> <span class="n">iso0_field</span><span class="o">=</span><span class="n">iso0_field</span><span class="p">,</span> <span class="n">max_h_iso0</span><span class="o">=</span><span class="n">max_h_iso0</span><span class="p">,</span>
-                <span class="n">thickness</span><span class="o">=</span><span class="n">thickness</span><span class="p">,</span> <span class="n">beamwidth</span><span class="o">=</span><span class="n">beamwidth</span><span class="p">)</span>
-            <span class="n">end_gate_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">nrays</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
+                <span class="n">radar</span><span class="p">,</span>
+                <span class="n">iso0_field</span><span class="o">=</span><span class="n">iso0_field</span><span class="p">,</span>
+                <span class="n">max_h_iso0</span><span class="o">=</span><span class="n">max_h_iso0</span><span class="p">,</span>
+                <span class="n">thickness</span><span class="o">=</span><span class="n">thickness</span><span class="p">,</span>
+                <span class="n">beamwidth</span><span class="o">=</span><span class="n">beamwidth</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">end_gate_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">nrays</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int32&quot;</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">ray</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">nrays</span><span class="p">):</span>
                 <span class="n">ind_rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">gatefilter</span><span class="o">.</span><span class="n">gate_excluded</span><span class="p">[</span><span class="n">ray</span><span class="p">,</span> <span class="p">:]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ind_rng</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="c1"># there are filtered gates: The last valid gate is one</span>
                     <span class="c1"># before the first filter gate</span>
                     <span class="k">if</span> <span class="n">ind_rng</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                        <span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]</span> <span class="o">=</span> <span class="n">ind_rng</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
+                        <span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]</span> <span class="o">=</span> <span class="n">ind_rng</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
                     <span class="k">else</span><span class="p">:</span>
                         <span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="c1"># there are no filter gates: all gates are valid</span>
-                    <span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">ngates</span><span class="o">-</span><span class="mi">1</span>
+                    <span class="n">end_gate_arr</span><span class="p">[</span><span class="n">ray</span><span class="p">]</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">ngates</span> <span class="o">-</span> <span class="mi">1</span>
             <span class="n">mask_fzl</span> <span class="o">=</span> <span class="n">gatefilter</span><span class="o">.</span><span class="n">gate_excluded</span> <span class="o">==</span> <span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">fzl</span> <span class="o">=</span> <span class="mf">4000.</span>
+            <span class="n">fzl</span> <span class="o">=</span> <span class="mf">4000.0</span>
             <span class="n">doc</span> <span class="o">=</span> <span class="mi">15</span>
-            <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Height over iso0 field not available.&quot;</span>
-                 <span class="o">+</span> <span class="s2">&quot;Using default freezing level height &quot;</span>
-                 <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fzl</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; [m].&quot;</span><span class="p">)</span>
+            <span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Height over iso0 field not available.&quot;</span>
+                <span class="o">+</span> <span class="s2">&quot;Using default freezing level height &quot;</span>
+                <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fzl</span><span class="p">)</span>
+                <span class="o">+</span> <span class="s2">&quot; [m].&quot;</span>
+            <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">mask_fzl</span><span class="p">,</span> <span class="n">end_gate_arr</span>
 
 
 <span class="k">def</span> <span class="nf">_prepare_phidp</span><span class="p">(</span><span class="n">phidp</span><span class="p">,</span> <span class="n">mask_fzl</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Prepares phidp to be used in attenuation correction by masking values</span>
 <span class="sd">    above freezing level setting negative values to 0 and make sure it is</span>
 <span class="sd">    monotously increasing.</span>
@@ -893,14 +1210,14 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">mask_phidp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">getmaskarray</span><span class="p">(</span><span class="n">phidp</span><span class="p">)</span>
     <span class="n">mask_phidp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">mask_phidp</span><span class="p">,</span> <span class="n">mask_fzl</span><span class="p">)</span>
-    <span class="n">mask_phidp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">mask_phidp</span><span class="p">,</span> <span class="n">phidp</span> <span class="o">&lt;</span> <span class="mf">0.</span><span class="p">)</span>
+    <span class="n">mask_phidp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">mask_phidp</span><span class="p">,</span> <span class="n">phidp</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">)</span>
     <span class="n">corr_phidp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">mask_phidp</span><span class="p">,</span> <span class="n">phidp</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="o">.</span><span class="n">accumulate</span><span class="p">(</span><span class="n">corr_phidp</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">fill_value</span><span class="o">=</span><span class="mf">0.</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="o">.</span><span class="n">accumulate</span><span class="p">(</span><span class="n">corr_phidp</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">fill_value</span><span class="o">=</span><span class="mf">0.0</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">_get_param_attzphi</span><span class="p">(</span><span class="n">freq</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the parameters of Z-Phi attenuation estimation for a particular</span>
 <span class="sd">    frequency.</span>
 
@@ -922,19 +1239,22 @@
         <span class="k">return</span> <span class="n">param_att_dict</span><span class="p">[</span><span class="n">freq_band</span><span class="p">]</span>
 
     <span class="k">if</span> <span class="n">freq</span> <span class="o">&lt;</span> <span class="mf">2e9</span><span class="p">:</span>
-        <span class="n">freq_band_aux</span> <span class="o">=</span> <span class="s1">&#39;S&#39;</span>
+        <span class="n">freq_band_aux</span> <span class="o">=</span> <span class="s2">&quot;S&quot;</span>
     <span class="k">elif</span> <span class="n">freq</span> <span class="o">&gt;</span> <span class="mf">12e9</span><span class="p">:</span>
-        <span class="n">freq_band_aux</span> <span class="o">=</span> <span class="s1">&#39;X&#39;</span>
+        <span class="n">freq_band_aux</span> <span class="o">=</span> <span class="s2">&quot;X&quot;</span>
 
-    <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Radar frequency out of range. &quot;</span>
-         <span class="o">+</span> <span class="s2">&quot;Coefficients only applied to S, C or X band. &quot;</span>
-         <span class="o">+</span> <span class="n">freq_band</span> <span class="o">+</span> <span class="s2">&quot; band coefficients will be used.&quot;</span><span class="p">)</span>
+    <span class="n">warn</span><span class="p">(</span>
+        <span class="s2">&quot;Radar frequency out of range. &quot;</span>
+        <span class="o">+</span> <span class="s2">&quot;Coefficients only applied to S, C or X band. &quot;</span>
+        <span class="o">+</span> <span class="n">freq_band</span>
+        <span class="o">+</span> <span class="s2">&quot; band coefficients will be used.&quot;</span>
+    <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">param_att_dict</span><span class="p">[</span><span class="n">freq_band_aux</span><span class="p">]</span>
 
 
 <span class="k">def</span> <span class="nf">_param_attzphi_table</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Defines the parameters of Z-Phi attenuation estimation at each frequency</span>
 <span class="sd">    band.</span>
 
@@ -947,19 +1267,19 @@
     <span class="n">param_att_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
 
     <span class="c1"># S band:</span>
-    <span class="n">param_att_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.64884</span><span class="p">,</span> <span class="mf">0.15917</span><span class="p">,</span> <span class="mf">1.0804</span><span class="p">)})</span>
+    <span class="n">param_att_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;S&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.64884</span><span class="p">,</span> <span class="mf">0.15917</span><span class="p">,</span> <span class="mf">1.0804</span><span class="p">)})</span>
 
     <span class="c1"># C band:</span>
-    <span class="n">param_att_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.64884</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.0804</span><span class="p">)})</span>
+    <span class="n">param_att_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.64884</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.0804</span><span class="p">)})</span>
 
     <span class="c1"># X band:</span>
-    <span class="n">param_att_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.31916</span><span class="p">,</span> <span class="mf">0.64884</span><span class="p">,</span> <span class="mf">0.15917</span><span class="p">,</span> <span class="mf">1.0804</span><span class="p">)})</span>
+    <span class="n">param_att_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.31916</span><span class="p">,</span> <span class="mf">0.64884</span><span class="p">,</span> <span class="mf">0.15917</span><span class="p">,</span> <span class="mf">1.0804</span><span class="p">)})</span>
 
     <span class="k">return</span> <span class="n">param_att_dict</span>
 
 
 <span class="k">def</span> <span class="nf">_get_param_attphilinear</span><span class="p">(</span><span class="n">freq</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the parameters of attenuation estimation based on phidp for a</span>
 <span class="sd">    particular frequency.</span>
 
@@ -981,19 +1301,22 @@
         <span class="k">return</span> <span class="n">param_att_dict</span><span class="p">[</span><span class="n">freq_band</span><span class="p">]</span>
 
     <span class="k">if</span> <span class="n">freq</span> <span class="o">&lt;</span> <span class="mf">2e9</span><span class="p">:</span>
-        <span class="n">freq_band_aux</span> <span class="o">=</span> <span class="s1">&#39;S&#39;</span>
+        <span class="n">freq_band_aux</span> <span class="o">=</span> <span class="s2">&quot;S&quot;</span>
     <span class="k">elif</span> <span class="n">freq</span> <span class="o">&gt;</span> <span class="mf">12e9</span><span class="p">:</span>
-        <span class="n">freq_band_aux</span> <span class="o">=</span> <span class="s1">&#39;X&#39;</span>
+        <span class="n">freq_band_aux</span> <span class="o">=</span> <span class="s2">&quot;X&quot;</span>
 
-    <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Radar frequency out of range. &quot;</span>
-         <span class="o">+</span> <span class="s2">&quot;Coefficients only applied to S, C or X band. &quot;</span>
-         <span class="o">+</span> <span class="n">freq_band_aux</span> <span class="o">+</span> <span class="s2">&quot; band coefficients will be used.&quot;</span><span class="p">)</span>
+    <span class="n">warn</span><span class="p">(</span>
+        <span class="s2">&quot;Radar frequency out of range. &quot;</span>
+        <span class="o">+</span> <span class="s2">&quot;Coefficients only applied to S, C or X band. &quot;</span>
+        <span class="o">+</span> <span class="n">freq_band_aux</span>
+        <span class="o">+</span> <span class="s2">&quot; band coefficients will be used.&quot;</span>
+    <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">param_att_dict</span><span class="p">[</span><span class="n">freq_band_aux</span><span class="p">]</span>
 
 
 <span class="k">def</span> <span class="nf">_param_attphilinear_table</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Defines the parameters of attenuation estimation based on phidp at each</span>
 <span class="sd">    frequency band.</span>
 
@@ -1006,23 +1329,36 @@
     <span class="n">param_att_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
 
     <span class="c1"># S band:</span>
-    <span class="n">param_att_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.004</span><span class="p">)})</span>
+    <span class="n">param_att_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;S&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.004</span><span class="p">)})</span>
 
     <span class="c1"># C band:</span>
-    <span class="n">param_att_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">)})</span>
+    <span class="n">param_att_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">)})</span>
 
     <span class="c1"># X band:</span>
-    <span class="n">param_att_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.28</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">)})</span>
+    <span class="n">param_att_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.28</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">)})</span>
 
     <span class="k">return</span> <span class="n">param_att_dict</span>
 
 
-<div class="viewcode-block" id="calculate_attenuation"><a class="viewcode-back" href="../../../API/generated/pyart.correct.calculate_attenuation.html#pyart.correct.calculate_attenuation">[docs]</a><span class="k">def</span> <span class="nf">calculate_attenuation</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">z_offset</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fzl</span><span class="o">=</span><span class="mf">4000.0</span><span class="p">,</span>
-                          <span class="n">gatefilter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rhv_min</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">ncp_min</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">a_coef</span><span class="o">=</span><span class="mf">0.06</span><span class="p">,</span>
-                          <span class="n">beta</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">refl_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ncp_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                          <span class="n">rhv_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">phidp_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">spec_at_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                          <span class="n">corr_refl_field</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="calculate_attenuation"><a class="viewcode-back" href="../../../API/generated/pyart.correct.calculate_attenuation.html#pyart.correct.calculate_attenuation">[docs]</a><span class="k">def</span> <span class="nf">calculate_attenuation</span><span class="p">(</span>
+    <span class="n">radar</span><span class="p">,</span>
+    <span class="n">z_offset</span><span class="p">,</span>
+    <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">doc</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+    <span class="n">fzl</span><span class="o">=</span><span class="mf">4000.0</span><span class="p">,</span>
+    <span class="n">gatefilter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">rhv_min</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">ncp_min</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">a_coef</span><span class="o">=</span><span class="mf">0.06</span><span class="p">,</span>
+    <span class="n">beta</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">refl_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">ncp_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">rhv_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">phidp_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">spec_at_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">corr_refl_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate the attenuation from a polarimetric radar using Z-PHI method.</span>
 
 <span class="sd">    Parameters</span>
@@ -1096,27 +1432,27 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># parse the field parameters</span>
     <span class="k">if</span> <span class="n">refl_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">refl_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;reflectivity&#39;</span><span class="p">)</span>
+        <span class="n">refl_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;reflectivity&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ncp_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">ncp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;normalized_coherent_power&#39;</span><span class="p">)</span>
+        <span class="n">ncp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;normalized_coherent_power&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">rhv_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">rhv_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;cross_correlation_ratio&#39;</span><span class="p">)</span>
+        <span class="n">rhv_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;cross_correlation_ratio&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">phidp_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="c1"># use corrrected_differential_phae or unfolded_differential_phase</span>
         <span class="c1"># fields if they are available, if not use differential_phase field</span>
-        <span class="n">phidp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;corrected_differential_phase&#39;</span><span class="p">)</span>
+        <span class="n">phidp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;corrected_differential_phase&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">phidp_field</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">:</span>
-            <span class="n">phidp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;unfolded_differential_phase&#39;</span><span class="p">)</span>
+            <span class="n">phidp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;unfolded_differential_phase&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">phidp_field</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">:</span>
-            <span class="n">phidp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;differential_phase&#39;</span><span class="p">)</span>
+            <span class="n">phidp_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;differential_phase&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">spec_at_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">spec_at_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;specific_attenuation&#39;</span><span class="p">)</span>
+        <span class="n">spec_at_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;specific_attenuation&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">corr_refl_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">corr_refl_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s1">&#39;corrected_reflectivity&#39;</span><span class="p">)</span>
+        <span class="n">corr_refl_field</span> <span class="o">=</span> <span class="n">get_field_name</span><span class="p">(</span><span class="s2">&quot;corrected_reflectivity&quot;</span><span class="p">)</span>
 
     <span class="c1"># Extract fields and parameters from radar</span>
-    <span class="n">reflectivity_horizontal</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">refl_field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
-    <span class="n">proc_dp_phase_shift</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">phidp_field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+    <span class="n">reflectivity_horizontal</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">refl_field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+    <span class="n">proc_dp_phase_shift</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">phidp_field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
     <span class="n">nsweeps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">nsweeps</span><span class="p">)</span>
 
     <span class="c1"># Determine where the reflectivity is valid, mask out bad locations.</span>
@@ -1137,18 +1473,17 @@
 
     <span class="c1"># calculate initial reflectivity correction and gate spacing (in km)</span>
     <span class="n">init_refl_correct</span> <span class="o">=</span> <span class="n">refl</span> <span class="o">+</span> <span class="n">proc_dp_phase_shift</span> <span class="o">*</span> <span class="n">a_coef</span>
-    <span class="n">dr</span> <span class="o">=</span> <span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mf">1000.0</span>
+    <span class="n">dr</span> <span class="o">=</span> <span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mf">1000.0</span>
 
     <span class="c1"># create array to hold specific attenuation and attenuation</span>
-    <span class="n">specific_atten</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reflectivity_horizontal</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
-    <span class="n">atten</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reflectivity_horizontal</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+    <span class="n">specific_atten</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reflectivity_horizontal</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+    <span class="n">atten</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reflectivity_horizontal</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">sweep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsweeps</span><span class="p">):</span>
         <span class="c1"># loop over the sweeps</span>
         <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Doing &quot;</span><span class="p">,</span> <span class="n">sweep</span><span class="p">)</span>
-        <span class="n">end_gate</span><span class="p">,</span> <span class="n">start_ray</span><span class="p">,</span> <span class="n">end_ray</span> <span class="o">=</span> <span class="n">det_process_range</span><span class="p">(</span>
-            <span class="n">radar</span><span class="p">,</span> <span class="n">sweep</span><span class="p">,</span> <span class="n">fzl</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="n">doc</span><span class="p">)</span>
+        <span class="n">end_gate</span><span class="p">,</span> <span class="n">start_ray</span><span class="p">,</span> <span class="n">end_ray</span> <span class="o">=</span> <span class="n">det_process_range</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">sweep</span><span class="p">,</span> <span class="n">fzl</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="n">doc</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start_ray</span><span class="p">,</span> <span class="n">end_ray</span><span class="p">):</span>
             <span class="c1"># perform attenuation calculation on a single ray</span>
@@ -1168,59 +1503,99 @@
 
             <span class="c1"># set the specific attenutation and attenuation</span>
             <span class="n">specific_atten</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">end_gate</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="n">reflectivity_linear</span> <span class="o">*</span> <span class="n">self_cons_number</span> <span class="o">/</span>
-                <span class="p">(</span><span class="n">I_indef</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">self_cons_number</span> <span class="o">*</span> <span class="n">I_indef</span><span class="p">))</span>
+                <span class="n">reflectivity_linear</span>
+                <span class="o">*</span> <span class="n">self_cons_number</span>
+                <span class="o">/</span> <span class="p">(</span><span class="n">I_indef</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">self_cons_number</span> <span class="o">*</span> <span class="n">I_indef</span><span class="p">)</span>
+            <span class="p">)</span>
 
             <span class="n">atten</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">cumtrapz</span><span class="p">(</span><span class="n">specific_atten</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:])</span> <span class="o">*</span> <span class="n">dr</span> <span class="o">*</span> <span class="mf">2.0</span>
             <span class="n">atten</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">atten</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
 
     <span class="c1"># prepare output field dictionaries</span>
     <span class="n">spec_at</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">spec_at_field</span><span class="p">)</span>
-    <span class="n">spec_at</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">specific_atten</span>
-    <span class="n">spec_at</span><span class="p">[</span><span class="s1">&#39;_FillValue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_fillvalue</span><span class="p">()</span>
+    <span class="n">spec_at</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">specific_atten</span>
+    <span class="n">spec_at</span><span class="p">[</span><span class="s2">&quot;_FillValue&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_fillvalue</span><span class="p">()</span>
 
     <span class="n">cor_z</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">(</span><span class="n">corr_refl_field</span><span class="p">)</span>
-    <span class="n">cor_z</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">atten</span> <span class="o">+</span> <span class="n">reflectivity_horizontal</span> <span class="o">+</span> <span class="n">z_offset</span>
-    <span class="n">cor_z</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="n">init_refl_correct</span><span class="o">.</span><span class="n">mask</span>
-    <span class="n">cor_z</span><span class="p">[</span><span class="s1">&#39;_FillValue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_fillvalue</span><span class="p">()</span>
+    <span class="n">cor_z</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">atten</span> <span class="o">+</span> <span class="n">reflectivity_horizontal</span> <span class="o">+</span> <span class="n">z_offset</span>
+    <span class="n">cor_z</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="n">init_refl_correct</span><span class="o">.</span><span class="n">mask</span>
+    <span class="n">cor_z</span><span class="p">[</span><span class="s2">&quot;_FillValue&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_fillvalue</span><span class="p">()</span>
 
     <span class="k">return</span> <span class="n">spec_at</span><span class="p">,</span> <span class="n">cor_z</span></div>
 </pre></div>
-<div class="section">
-   
+<div class="section ablog__blog_comments">
+  
+  
 </div>
 
-              </div>
+                </article>
               
               
-              <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
 </div>
-              
-          </main>
-          
 
-      </div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-<footer class="footer mt-5 mt-md-0">
-  <div class="container">
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
     
-    <div class="footer-item">
-      <p class="copyright">
-    &copy; Copyright 2013-2022, Py-ART developers.<br>
-</p>
+      © Copyright 2013-2022, Py-ART developers.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    <br/>
+  </p>
+</div>
+      
     </div>
-    
-    <div class="footer-item">
-      <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
-</p>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
     </div>
-    
-  </div>
-</footer>
+  
+</div>
+
+  </footer>
   </body>
 </html>

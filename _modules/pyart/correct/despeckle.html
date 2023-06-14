@@ -1,222 +1,466 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-theme="light">
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyart.correct.despeckle &#8212; Py-ART 1.11.6.post267 documentation</title>
-    
+    <title>pyart.correct.despeckle &#8212; Py-ART 1.11.6.post312 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyart-theme.css" />
-    
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-JJEG3CV376"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-JJEG3CV376');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pyart/correct/despeckle';</script>
     <script src="../../../_static/doc_shared.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
+    <link rel="search" title="Search" href="../../../search.html" />
 
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JJEG3CV376"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-JJEG3CV376');
-                </script>
- 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
 <link
   rel="alternate"
   type="application/atom+xml"
   href="../../../blog/atom.xml"
   title="PyART Blog"
 />
- 
-<style type="text/css">
-  ul.ablog-archive {
-    list-style: none;
-    overflow: auto;
-    margin-left: 0px;
-  }
-  ul.ablog-archive li {
-    float: left;
-    margin-right: 5px;
-    font-size: 80%;
-  }
-  ul.postlist a {
-    font-style: italic;
-  }
-  ul.postlist-style-disc {
-    list-style-type: disc;
-  }
-  ul.postlist-style-none {
-    list-style-type: none;
-  }
-  ul.postlist-style-circle {
-    list-style-type: circle;
-  }
-</style>
+
+
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-  <nav class="navbar navbar-dark navbar-expand-lg bg-arm fixed-top bd-navbar shadow" id="navbar-main"><div class="container-xl">
-
-  <div id="navbar-start">
-    
-    
-<a class="navbar-brand" href="../../../index.html">
-<p class="title">Py-ART</p>
-</a>
-
-    
-  </div>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
 
   
-  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
-    <div id="navbar-center" class="mr-auto">
-      
-      <div class="navbar-center-item">
-        <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../userguide/index.html">
-  User Guide
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../API/index.html">
-  API Reference Manual
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../examples/index.html">
-  Example Gallery
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../notebook-gallery.html">
-  Notebook Gallery
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../blog.html">
-  Blog
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../changelog.html">
-  Changelog
- </a>
-</li>
-
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
     
-</ul>
-      </div>
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Py-ART 1.11.6.post312 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../userguide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../API/index.html">
+                        API Reference Manual
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        Example Gallery
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../notebook-gallery.html">
+                        Notebook Gallery
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../blog.html">
+                        Blog
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../changelog.html">
+                        Changelog
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+  </ul>
+</nav></div>
       
     </div>
-
-    <div id="navbar-end">
+    
+    
+    <div class="navbar-header-items__end">
       
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/ARM-DOE/pyart" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ARM-DOE/pyart" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
             <label class="sr-only">GitHub</label></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://twitter.com/Py_ART" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter-square"></i></span>
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/Py_ART" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter"></i></span>
             <label class="sr-only">Twitter</label></a>
         </li>
-      </ul>
-      </div>
+</ul></div>
       
     </div>
-  </div>
-</div>
-  </nav>
-
-
-    <div class="container-fluid" id="banner"></div>
-
-
-    <div class="container-xl">
-      <div class="row">
-          
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar">
-              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <div class="bd-toc-item active">
     
   </div>
-</nav>
-              </div>
-              <div class="sidebar-end-items">
-              </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../userguide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../API/index.html">
+                        API Reference Manual
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        Example Gallery
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../notebook-gallery.html">
+                        Notebook Gallery
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../blog.html">
+                        Blog
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../changelog.html">
+                        Changelog
+                      </a>
+                    </li>
+                
+                </div>
             </div>
             
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
           
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ARM-DOE/pyart" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/Py_ART" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-          
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-          </div>
-          
 
-          
-          
-            
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
               
-              <div>
-                 <h1>Source code for pyart.correct.despeckle</h1><div class="highlight"><pre>
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">pyart.correct.despeckle</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<h1>Source code for pyart.correct.despeckle</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Find contiguous objects in scans and despeckle away ones that are too small.</span>
 
@@ -229,15 +473,16 @@
 <span class="kn">from</span> <span class="nn">..config</span> <span class="kn">import</span> <span class="n">get_fillvalue</span>
 <span class="kn">from</span> <span class="nn">..filters.gatefilter</span> <span class="kn">import</span> <span class="n">GateFilter</span>
 
-<span class="n">BAD</span> <span class="o">=</span> <span class="n">get_fillvalue</span><span class="p">()</span> <span class="c1"># Get default fill value.</span>
+<span class="n">BAD</span> <span class="o">=</span> <span class="n">get_fillvalue</span><span class="p">()</span>  <span class="c1"># Get default fill value.</span>
 <span class="n">DELTA</span> <span class="o">=</span> <span class="mf">5.0</span>  <span class="c1"># deg, allowable gap between PPI edges to be considered full 360</span>
 <span class="c1"># To do:</span>
 <span class="c1"># Testing</span>
 
 
-<div class="viewcode-block" id="find_objects"><a class="viewcode-back" href="../../../API/generated/pyart.correct.find_objects.html#pyart.correct.find_objects">[docs]</a><span class="k">def</span> <span class="nf">find_objects</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">sweeps</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">smooth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">gatefilter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="n">DELTA</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="find_objects"><a class="viewcode-back" href="../../../API/generated/pyart.correct.find_objects.html#pyart.correct.find_objects">[docs]</a><span class="k">def</span> <span class="nf">find_objects</span><span class="p">(</span>
+    <span class="n">radar</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">sweeps</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">smooth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gatefilter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="n">DELTA</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Find objects (i.e., contiguous gates) in one or more sweeps that match</span>
 <span class="sd">    thresholds. Filtering &amp; smoothing are available prior to labeling objects.</span>
 <span class="sd">    In addition, periodic boundaries are accounted for if they exist</span>
@@ -278,14 +523,13 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">field</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;Failed -&#39;</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="s1">&#39;field not found in Radar object.&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Failed -&quot;</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="s2">&quot;field not found in Radar object.&quot;</span><span class="p">)</span>
     <span class="n">sweeps</span> <span class="o">=</span> <span class="n">_check_sweeps</span><span class="p">(</span><span class="n">sweeps</span><span class="p">,</span> <span class="n">radar</span><span class="p">)</span>
     <span class="n">tlo</span><span class="p">,</span> <span class="n">thi</span> <span class="o">=</span> <span class="n">_check_threshold</span><span class="p">(</span><span class="n">threshold</span><span class="p">)</span>
     <span class="n">objcnt</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">label_storage</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">iswp</span> <span class="ow">in</span> <span class="n">sweeps</span><span class="p">:</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">_get_data</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">iswp</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">tlo</span><span class="p">,</span> <span class="n">thi</span><span class="p">,</span> <span class="n">smooth</span><span class="p">,</span>
-                         <span class="n">gatefilter</span><span class="o">=</span><span class="n">gatefilter</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">_get_data</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">iswp</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">tlo</span><span class="p">,</span> <span class="n">thi</span><span class="p">,</span> <span class="n">smooth</span><span class="p">,</span> <span class="n">gatefilter</span><span class="o">=</span><span class="n">gatefilter</span><span class="p">)</span>
         <span class="n">az</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">get_azimuth</span><span class="p">(</span><span class="n">iswp</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">_check_for_360</span><span class="p">(</span><span class="n">az</span><span class="p">,</span> <span class="n">delta</span><span class="p">):</span>
             <span class="c1"># If 360 or close, account for the periodic boundary</span>
@@ -295,14 +539,14 @@
         <span class="n">labels</span><span class="p">[</span><span class="n">labels</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">objcnt</span>
         <span class="n">objcnt</span> <span class="o">+=</span> <span class="n">nobj</span>
         <span class="n">label_storage</span> <span class="o">=</span> <span class="n">_append_labels</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">label_storage</span><span class="p">)</span>
-    <span class="n">label_storage</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span>
-        <span class="n">label_storage</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">label_storage</span><span class="p">)</span>
+    <span class="n">label_storage</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">label_storage</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">label_storage</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">_generate_dict</span><span class="p">(</span><span class="n">label_storage</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="despeckle_field"><a class="viewcode-back" href="../../../API/generated/pyart.correct.despeckle_field.html#pyart.correct.despeckle_field">[docs]</a><span class="k">def</span> <span class="nf">despeckle_field</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">label_dict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=-</span><span class="mi">100</span><span class="p">,</span>
-                    <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">gatefilter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="n">DELTA</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="despeckle_field"><a class="viewcode-back" href="../../../API/generated/pyart.correct.despeckle_field.html#pyart.correct.despeckle_field">[docs]</a><span class="k">def</span> <span class="nf">despeckle_field</span><span class="p">(</span>
+    <span class="n">radar</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">label_dict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=-</span><span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">gatefilter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="n">DELTA</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Despeckle a radar volume by identifying small objects in each scan and</span>
 <span class="sd">    masking them out. User can define which field to investigate, as well as</span>
 <span class="sd">    various thresholds to use on that field and any objects found within.</span>
@@ -340,17 +584,18 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">field</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;Failed -&#39;</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="s1">&#39;field not found in Radar object.&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Failed -&quot;</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="s2">&quot;field not found in Radar object.&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">label_dict</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="c1"># Label everything in the radar object&#39;s field</span>
-        <span class="n">label_dict</span> <span class="o">=</span> <span class="n">find_objects</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span>
-                                  <span class="n">gatefilter</span><span class="o">=</span><span class="n">gatefilter</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="n">delta</span><span class="p">)</span>
+        <span class="n">label_dict</span> <span class="o">=</span> <span class="n">find_objects</span><span class="p">(</span>
+            <span class="n">radar</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">gatefilter</span><span class="o">=</span><span class="n">gatefilter</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="n">delta</span>
+        <span class="p">)</span>
     <span class="k">if</span> <span class="n">gatefilter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">gatefilter</span> <span class="o">=</span> <span class="n">GateFilter</span><span class="p">(</span><span class="n">radar</span><span class="p">)</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="n">label_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">label_dict</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
 
     <span class="c1"># Get a copy of the field in the volume</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
     <span class="n">mask_filter</span> <span class="o">=</span> <span class="n">gatefilter</span><span class="o">.</span><span class="n">gate_excluded</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mask_filter</span><span class="p">)</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">fill_value</span><span class="o">=</span><span class="n">BAD</span><span class="p">)</span>
@@ -375,7 +620,7 @@
 
 
 <span class="k">def</span> <span class="nf">_adjust_for_periodic_boundary</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Identify all the contiguous objects in a sweep, accounting for the</span>
 <span class="sd">    periodic boundary in a 360-deg PPI. Contiguous means corners or sides</span>
 <span class="sd">    of gates touch. The algorithm appends the sweep to itself, then looks</span>
@@ -404,7 +649,6 @@
     <span class="n">i2</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
     <span class="n">old_labs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">i2</span><span class="p">][</span><span class="n">labels</span><span class="p">[</span><span class="n">i2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">])</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">lab</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">old_labs</span><span class="p">):</span>
-        <span class="n">cond</span> <span class="o">=</span> <span class="n">labels</span> <span class="o">==</span> <span class="n">lab</span>
         <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">i2</span><span class="p">]</span> <span class="o">==</span> <span class="n">lab</span><span class="p">)</span>
         <span class="n">new_lab</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">i1</span><span class="p">][</span><span class="n">indices</span><span class="p">[</span><span class="mi">0</span><span class="p">]])[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">labels</span><span class="p">[</span><span class="n">labels</span> <span class="o">==</span> <span class="n">lab</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_lab</span>
@@ -414,7 +658,7 @@
 
 
 <span class="k">def</span> <span class="nf">_append_labels</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">label_storage</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Appends consecutive sweeps of labels, creating a multi-sweep 2D array.</span>
 <span class="sd">    Typically called iteratively.</span>
 
@@ -440,7 +684,7 @@
 
 
 <span class="k">def</span> <span class="nf">_check_for_360</span><span class="p">(</span><span class="n">az</span><span class="p">,</span> <span class="n">delta</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Check if an array of azimuths indicates the sweep is a full 360 PPI.</span>
 <span class="sd">    This should also spot RHIs (effectively, a narrow azimuth sector sweep).</span>
 
@@ -460,14 +704,13 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Check for small gap in azimuths</span>
-    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">az</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">az</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">delta</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">az</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">az</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">360</span> <span class="o">-</span> <span class="n">delta</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">az</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">az</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">delta</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">az</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">az</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">360</span> <span class="o">-</span> <span class="n">delta</span><span class="p">:</span>
         <span class="c1"># Confirm small gap and not just narrow sector</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">az</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">az</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">360</span> <span class="o">-</span> <span class="n">delta</span><span class="p">:</span>
             <span class="c1"># Confirm not narrow sector near true north</span>
-            <span class="k">if</span> <span class="kc">True</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">az</span><span class="p">))</span> <span class="o">&lt;</span>
-                            <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mi">360</span><span class="o">-</span><span class="n">delta</span><span class="p">)))</span> <span class="ow">or</span> \
-                    <span class="kc">True</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">az</span><span class="p">))</span> <span class="o">&gt;</span>
-                                 <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">delta</span><span class="p">))):</span>
+            <span class="k">if</span> <span class="kc">True</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">az</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mi">360</span> <span class="o">-</span> <span class="n">delta</span><span class="p">))</span>
+            <span class="p">)</span> <span class="ow">or</span> <span class="kc">True</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">az</span><span class="p">))</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">delta</span><span class="p">))):</span>
                 <span class="k">return</span> <span class="kc">False</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">return</span> <span class="kc">True</span>
@@ -478,7 +721,7 @@
 
 
 <span class="k">def</span> <span class="nf">_check_sweeps</span><span class="p">(</span><span class="n">sweeps</span><span class="p">,</span> <span class="n">radar</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Parse the sweeps keyword and convert it to a list of ints.</span>
 <span class="sd">    The output will be iterated over.</span>
 
@@ -497,9 +740,9 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">sweeps</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">sweeps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">sweep_number</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]))</span>
+        <span class="n">sweeps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">radar</span><span class="o">.</span><span class="n">sweep_number</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]))</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">sweeps</span><span class="p">,</span> <span class="s1">&#39;__len__&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">sweeps</span><span class="p">,</span> <span class="s2">&quot;__len__&quot;</span><span class="p">):</span>
             <span class="n">sweeps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">sweeps</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">sweeps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">sweeps</span><span class="p">])</span>
@@ -507,7 +750,7 @@
 
 
 <span class="k">def</span> <span class="nf">_check_threshold</span><span class="p">(</span><span class="n">threshold</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Parse the threshold keyword and return the lower and upper boundaries for</span>
 <span class="sd">    the object search.</span>
 
@@ -527,14 +770,15 @@
 <span class="sd">        in the hunt for objects. None means no upper bound.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">threshold</span><span class="p">,</span> <span class="s1">&#39;__len__&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">threshold</span><span class="p">,</span> <span class="s2">&quot;__len__&quot;</span><span class="p">):</span>
         <span class="n">threshold</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">threshold</span><span class="p">])</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">threshold</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="n">tlo</span> <span class="o">=</span> <span class="n">threshold</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">thi</span> <span class="o">=</span> <span class="n">threshold</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">threshold</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">threshold</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s1">&#39;Fix threshold argument! Must be single scalar &#39;</span> <span class="o">+</span>
-                         <span class="s1">&#39;or 2-element tuple&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span>
+            <span class="s2">&quot;Fix threshold argument! Must be single scalar &quot;</span> <span class="o">+</span> <span class="s2">&quot;or 2-element tuple&quot;</span>
+        <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">tlo</span> <span class="o">=</span> <span class="n">threshold</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">thi</span> <span class="o">=</span> <span class="kc">None</span>
@@ -542,7 +786,7 @@
 
 
 <span class="k">def</span> <span class="nf">_generate_dict</span><span class="p">(</span><span class="n">label_storage</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Build the dictionary that includes all the object label information.</span>
 <span class="sd">    If the entire Radar object was searched, the dictionary is ready to</span>
 <span class="sd">    be added as a new field.</span>
@@ -559,18 +803,18 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">label_dict</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="n">label_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">label_storage</span>
-    <span class="n">label_dict</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span>
-    <span class="n">label_dict</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Objects in Scan&#39;</span>
-    <span class="n">label_dict</span><span class="p">[</span><span class="s1">&#39;standard_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;objects_in_scan&#39;</span>
-    <span class="n">label_dict</span><span class="p">[</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;elevation azimuth range&#39;</span>
-    <span class="n">label_dict</span><span class="p">[</span><span class="s1">&#39;valid_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">label_storage</span><span class="p">)</span>
-    <span class="n">label_dict</span><span class="p">[</span><span class="s1">&#39;valid_min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">label_dict</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">label_storage</span>
+    <span class="n">label_dict</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;None&quot;</span>
+    <span class="n">label_dict</span><span class="p">[</span><span class="s2">&quot;long_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Objects in Scan&quot;</span>
+    <span class="n">label_dict</span><span class="p">[</span><span class="s2">&quot;standard_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;objects_in_scan&quot;</span>
+    <span class="n">label_dict</span><span class="p">[</span><span class="s2">&quot;coordinates&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;elevation azimuth range&quot;</span>
+    <span class="n">label_dict</span><span class="p">[</span><span class="s2">&quot;valid_max&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">label_storage</span><span class="p">)</span>
+    <span class="n">label_dict</span><span class="p">[</span><span class="s2">&quot;valid_min&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">label_dict</span>
 
 
 <span class="k">def</span> <span class="nf">_get_data</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">iswp</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">tlo</span><span class="p">,</span> <span class="n">thi</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">gatefilter</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get data for a field from a given sweep in a Radar object.</span>
 <span class="sd">    Data are smoothed if desired, then converted to binary 0s/1s based</span>
 <span class="sd">    on whether valid values are present.</span>
@@ -608,7 +852,7 @@
     <span class="n">data</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">get_field</span><span class="p">(</span><span class="n">iswp</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">gatefilter</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">get_start_end</span><span class="p">(</span><span class="n">iswp</span><span class="p">)</span>
-        <span class="n">mask_filter</span> <span class="o">=</span> <span class="n">gatefilter</span><span class="o">.</span><span class="n">gate_excluded</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">mask_filter</span> <span class="o">=</span> <span class="n">gatefilter</span><span class="o">.</span><span class="n">gate_excluded</span><span class="p">[</span><span class="n">start</span> <span class="p">:</span> <span class="n">end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mask_filter</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -617,15 +861,14 @@
     <span class="k">if</span> <span class="n">thi</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">cond</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">data</span> <span class="o">&lt;</span> <span class="n">tlo</span><span class="p">,</span> <span class="n">data</span> <span class="o">==</span> <span class="n">BAD</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">cond</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span>
-            <span class="n">data</span> <span class="o">==</span> <span class="n">BAD</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">data</span> <span class="o">&lt;</span> <span class="n">tlo</span><span class="p">,</span> <span class="n">data</span> <span class="o">&gt;</span> <span class="n">thi</span><span class="p">))</span>
+        <span class="n">cond</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">data</span> <span class="o">==</span> <span class="n">BAD</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">data</span> <span class="o">&lt;</span> <span class="n">tlo</span><span class="p">,</span> <span class="n">data</span> <span class="o">&gt;</span> <span class="n">thi</span><span class="p">))</span>
     <span class="n">data</span><span class="p">[</span><span class="n">cond</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">cond</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">data</span>
 
 
 <span class="k">def</span> <span class="nf">_get_labels</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Identify all the contiguous objects in a sweep. Contiguous means corners</span>
 <span class="sd">    or sides of gates touch. Uses scipy.ndimage.label.</span>
 
@@ -644,13 +887,13 @@
 <span class="sd">        Number of distinct objects identified in sweep.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int16&#39;</span><span class="p">)</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int16&quot;</span><span class="p">)</span>
     <span class="n">labels</span><span class="p">,</span> <span class="n">nobj</span> <span class="o">=</span> <span class="n">label</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">structure</span><span class="o">=</span><span class="n">matrix</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">labels</span><span class="p">,</span> <span class="n">nobj</span>
 
 
 <span class="k">def</span> <span class="nf">_smooth_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Perform box filtering along each ray of a sweep, and return the</span>
 <span class="sd">    smoothed field. Uses scipy.signal.convolve2d which provides excellent</span>
 <span class="sd">    performance.</span>
@@ -670,47 +913,90 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">window</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">convolve2d</span><span class="p">(</span>
-            <span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">window</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">(</span><span class="n">window</span><span class="p">),</span>
-            <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span> <span class="n">boundary</span><span class="o">=</span><span class="s1">&#39;symm&#39;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span>
+            <span class="n">convolve2d</span><span class="p">(</span>
+                <span class="n">data</span><span class="p">,</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">window</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">(</span><span class="n">window</span><span class="p">),</span>
+                <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;same&quot;</span><span class="p">,</span>
+                <span class="n">boundary</span><span class="o">=</span><span class="s2">&quot;symm&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">data</span>
 </pre></div>
-<div class="section">
-   
+<div class="section ablog__blog_comments">
+  
+  
 </div>
 
-              </div>
+                </article>
               
               
-              <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
 </div>
-              
-          </main>
-          
 
-      </div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-<footer class="footer mt-5 mt-md-0">
-  <div class="container">
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
     
-    <div class="footer-item">
-      <p class="copyright">
-    &copy; Copyright 2013-2022, Py-ART developers.<br>
-</p>
+      © Copyright 2013-2022, Py-ART developers.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    <br/>
+  </p>
+</div>
+      
     </div>
-    
-    <div class="footer-item">
-      <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
-</p>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
     </div>
-    
-  </div>
-</footer>
+  
+</div>
+
+  </footer>
   </body>
 </html>
