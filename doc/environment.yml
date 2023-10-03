@@ -32,6 +32,8 @@ dependencies:
   - sphinx-design
   - sphinx-copybutton
   - nbsphinx
+  - pre_commit
+  - cmweather
   - pip
   - pip:
       - pooch
