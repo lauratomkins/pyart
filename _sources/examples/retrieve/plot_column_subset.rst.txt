@@ -27,7 +27,7 @@ a point
 
 .. GENERATED FROM PYTHON SOURCE LINES 9-24
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Author: Maxwell Grover (mgrover@anl.gov)
@@ -62,7 +62,7 @@ column of values.
 
 .. GENERATED FROM PYTHON SOURCE LINES 31-54
 
-.. code-block:: default
+.. code-block:: Python
 
 
     site_lon = -97.73  # longitude in degrees
@@ -101,7 +101,7 @@ column of values.
  .. code-block:: none
 
 
-    <matplotlib.collections.PathCollection object at 0x7fa8eace6a50>
+    <matplotlib.collections.PathCollection object at 0x7fec50a16720>
 
 
 
@@ -112,7 +112,7 @@ utility function in Py-ART to subset a column
 
 .. GENERATED FROM PYTHON SOURCE LINES 57-59
 
-.. code-block:: default
+.. code-block:: Python
 
     ds = pyart.util.columnsect.get_field_location(radar, site_lat, site_lon)
 
@@ -129,7 +129,7 @@ This function returns an xarray dataset, with all of our data fields!
 
 .. GENERATED FROM PYTHON SOURCE LINES 61-63
 
-.. code-block:: default
+.. code-block:: Python
 
     print(ds)
 
@@ -177,7 +177,7 @@ above our point, which is stored in our new dataset
 
 .. GENERATED FROM PYTHON SOURCE LINES 68-69
 
-.. code-block:: default
+.. code-block:: Python
 
     ds.corrected_reflectivity_horizontal.plot(y="height")
 
@@ -194,14 +194,14 @@ above our point, which is stored in our new dataset
  .. code-block:: none
 
 
-    [<matplotlib.lines.Line2D object at 0x7fa8eaf1d5b0>]
+    [<matplotlib.lines.Line2D object at 0x7fec50df8170>]
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 3.012 seconds)
+   **Total running time of the script:** (0 minutes 2.154 seconds)
 
 
 .. _sphx_glr_download_examples_retrieve_plot_column_subset.py:
@@ -210,16 +210,13 @@ above our point, which is stored in our new dataset
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_column_subset.ipynb <plot_column_subset.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_column_subset.py <plot_column_subset.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_column_subset.ipynb <plot_column_subset.ipynb>`
 
 
 .. only:: html

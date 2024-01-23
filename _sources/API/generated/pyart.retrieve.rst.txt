@@ -31,6 +31,8 @@
     
     compute_snr
     
+    conv_strat_raut
+    
     conv_strat_yuter
     
     dealias_spectra
@@ -48,6 +50,8 @@
     est_rain_rate_zkdp
     
     est_rain_rate_zpoly
+    
+    feature_detection
     
     fetch_radar_time_profile
     
